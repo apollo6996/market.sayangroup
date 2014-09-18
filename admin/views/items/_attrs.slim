@@ -1,0 +1,14 @@
+p test
+
+
+#Category1 style='display: block;' 
+  - error = @item.errors.key?(:descipt) && @item.errors[:descipt].count > 0
+  fieldset class='control-group#{error ? ' has-error' : ''}'
+    = f.label :material, :class => 'control-label'
+    div class='controls'
+      = f.text_area :material, :class => 'form-control input-sm input-with-feedback'
+      span class='help-inline' = error ? f.error_message_on(:material, :class => 'text-error') : ''
+
+
+#Category2 style='display: none;' 
+  p Категория 2

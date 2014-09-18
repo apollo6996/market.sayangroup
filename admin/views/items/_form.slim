@@ -1,0 +1,70 @@
+.row
+  .col-md-6
+    - error = @item.errors.key?(:name) && @item.errors[:name].count > 0
+    fieldset class='control-group#{error ? ' has-error' : ''}'
+      = f.label 'Наименование', :class => 'control-label'
+      div class='controls'
+        = f.text_field :name, :class => 'form-control input-sm input-with-feedback', :autofocus => true
+        span class='help-inline' = error ? f.error_message_on(:name, :class => 'text-error') : ''
+     
+    - error = @item.errors.key?(:category_id) && @item.errors[:category_id].count > 0
+    fieldset class='control-group#{error ? ' has-error' : ''}'
+      = f.label 'Категория Товара', :class => 'control-label'
+      div#for_category.controls
+        = f.select(:category_id, :class => 'form-control input-sm input-with-feedback', :collection => @allcats, :fields => [:name, :id]) 
+        span class='help-inline' = error ? f.error_message_on(:category_id, :class => 'text-error') : ''
+    
+    - error = @item.errors.key?(:descipt) && @item.errors[:descipt].count > 0
+    fieldset class='control-group#{error ? ' has-error' : ''}'
+      = f.label :descipt, :class => 'control-label'
+      div class='controls'
+        = f.text_area :descipt, :class => 'form-control input-sm input-with-feedback'
+        span class='help-inline' = error ? f.error_message_on(:descipt, :class => 'text-error') : ''
+
+    - error = @item.errors.key?(:price) && @item.errors[:price].count > 0
+    fieldset class='control-group#{error ? ' has-error' : ''}'
+      = f.label :price, :class => 'control-label'
+      div class='input-group'
+        = f.text_field :price, :class => 'form-control input-sm input-with-feedback' 
+        span.input-group-addon руб.
+        span class='help-inline' = error ? f.error_message_on(:price, :class => 'text-error') : ''
+
+    - error = @item.errors.key?(:virtual_item) && @item.errors[:virtual_item].count > 0
+    fieldset class='control-group#{error ? ' has-error' : ''}'
+      = f.label :virtual_item, :class => 'control-label'
+      div class='controls'
+        = f.check_box :virtual_item, :class => 'form-control input-sm input-with-feedback'
+        span class='help-inline' = error ? f.error_message_on(:virtual_item, :class => 'text-error') : ''
+  .col-md-6
+    #result
+      / #Category1 style='display: block;' 
+      /   -@attrs[1].each do |spec|
+      /       fieldset class='control-group#{error ? ' has-error' : ''}'
+      /         = f.label spec, :class => 'control-label'
+      /         div class='controls'
+      /           = f.text_field spec, :class => 'form-control input-sm input-with-feedback' 
+      /           span class='help-inline' = error ? f.error_message_on(spec, :class => 'text-error') : ''
+    
+      - for i in 1..@attrs.length
+        -if i == 1
+          == "<div id=Category#{i} style='display: block;'>"
+        -elsif i == @attrs.length
+          == "<div id=Category#{i} style='display: none;'>"
+        -else 
+          == "<div id=Category#{i} style='display: none;'>" 
+        -@attrs[i].each do |spec|
+                fieldset class='control-group#{error ? ' has-error' : ''}'
+                  = f.label spec, :class => 'control-label'
+                  div class='controls'
+                    = f.text_field spec, :class => 'form-control input-sm input-with-feedback' 
+                    span class='help-inline' = error ? f.error_message_on(spec, :class => 'text-error') : ''
+        == "</div>"    
+   
+.row
+  .col-md-5.col-md-offset-3
+    div class="form-actions"
+      = f.submit pat(:save), :class => 'btn btn-primary'
+      |&nbsp;
+      = f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue'
+      |&nbsp;
+      = link_to pat(:cancel), url(:items, :index), :class => 'btn btn-default'
