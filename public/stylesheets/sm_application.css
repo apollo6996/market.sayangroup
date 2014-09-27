@@ -78,7 +78,7 @@ ul.nav.nav-pills li a {
   overflow: hidden;
   background-image: url(../images/forSprite/button_base.png);
   margin-left: -5px;
-  margin-right: -8px;
+  margin-right: -4px;
   background-size: 100% 100%;
   width: 189px;
   height: 45px;
@@ -86,56 +86,50 @@ ul.nav.nav-pills li a {
 
 /* line 90, ../../app/stylesheets/application.scss */
 .menu_blue {
-  background-image: url(../images/forSprite.png);
-  background-position: 50% 338px;
-  background-size: cover;
+  background-image: url(../images/forSprite/button_base_blue.png);
+  background-size: 100% 100%;
 }
-/* line 94, ../../app/stylesheets/application.scss */
+/* line 93, ../../app/stylesheets/application.scss */
 .menu_blue a {
   margin-left: 40px;
 }
-/* line 97, ../../app/stylesheets/application.scss */
+/* line 96, ../../app/stylesheets/application.scss */
 .menu_blue:hover {
-  background-image: url(../images/forSprite.png);
-  background-position: 50% 179px;
-  background-size: cover;
+  background-image: url(../images/forSprite/button_blue.png);
+  background-size: 100% 100%;
 }
 
-/* line 104, ../../app/stylesheets/application.scss */
+/* line 102, ../../app/stylesheets/application.scss */
 .menu_green {
-  background-image: url(../images/forSprite.png);
-  background-position: 50% 285px;
-  background-size: cover;
+  background-image: url(../images/forSprite/button_base_green.png);
+  background-size: 100% 100%;
 }
-/* line 108, ../../app/stylesheets/application.scss */
+/* line 105, ../../app/stylesheets/application.scss */
 .menu_green a {
   margin-left: 63px;
 }
-/* line 111, ../../app/stylesheets/application.scss */
+/* line 108, ../../app/stylesheets/application.scss */
 .menu_green:hover {
-  background-image: url(../images/forSprite.png);
-  background-position: 50% 125px;
-  background-size: cover;
+  background-image: url(../images/forSprite/button_green.png);
+  background-size: 100% 100%;
 }
 
-/* line 118, ../../app/stylesheets/application.scss */
+/* line 114, ../../app/stylesheets/application.scss */
 .menu_red {
-  background-image: url(../images/forSprite.png);
-  background-position: 50% 232px;
-  background-size: cover;
+  background-image: url(../images/forSprite/button_base_red.png);
+  background-size: 100% 100%;
 }
-/* line 122, ../../app/stylesheets/application.scss */
+/* line 117, ../../app/stylesheets/application.scss */
 .menu_red a {
   margin-left: -10px;
 }
-/* line 125, ../../app/stylesheets/application.scss */
+/* line 120, ../../app/stylesheets/application.scss */
 .menu_red:hover {
-  background-image: url(../images/forSprite.png);
-  background-position: 50% 71px;
-  background-size: cover;
+  background-image: url(../images/forSprite/button_red.png);
+  background-size: 100% 100%;
 }
 
-/* line 133, ../../app/stylesheets/application.scss */
+/* line 127, ../../app/stylesheets/application.scss */
 ul li.menu {
   -moz-box-sizing: content-box;
   -webkit-box-sizing: content-box;
@@ -147,22 +141,22 @@ ul li.menu {
   overflow: hidden;
   min-width: 320px;
   width: 320px;
-  height: 52px;
+  height: 55px;
   margin-left: -10px;
   font-size: 18px;
 }
-/* line 145, ../../app/stylesheets/application.scss */
+/* line 139, ../../app/stylesheets/application.scss */
 ul li.menu a {
   width: 320px;
-  height: 52px;
+  height: 55px;
   color: #555;
 }
-/* line 149, ../../app/stylesheets/application.scss */
+/* line 143, ../../app/stylesheets/application.scss */
 ul li.menu a:hover {
   color: #fff;
 }
 
-/* line 157, ../../app/stylesheets/application.scss */
+/* line 151, ../../app/stylesheets/application.scss */
 .corner {
   position: relative;
   background-color: #0066CC;
@@ -176,7 +170,7 @@ ul li.menu a:hover {
   -webkit-box-shadow: grey 2px 1px 10px;
   box-shadow: grey 2px 1px 10px;
 }
-/* line 164, ../../app/stylesheets/application.scss */
+/* line 158, ../../app/stylesheets/application.scss */
 .corner:after {
   content: ' ';
   position: absolute;
@@ -188,7 +182,7 @@ ul li.menu a:hover {
   border-width: 20px 60px 0 0;
   border-color: transparent transparent white transparent;
 }
-/* line 177, ../../app/stylesheets/application.scss */
+/* line 171, ../../app/stylesheets/application.scss */
 .corner:before {
   content: ' ';
   position: absolute;

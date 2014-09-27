@@ -1,0 +1,189 @@
+@import "compass/css3";
+@import "compass/utilities";
+
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:300,400&subset=latin,cyrillic);
+
+@mixin bgtop {
+  background-color: transparent;
+  background-image: url(../images/bg-top.svg);
+  background-size: 100% 450%;
+  background-position: 40% 66%;
+}
+
+@mixin button {
+  background-color: transparent;
+  background-image: url(../images/button_base.svg);
+  background-size: 100% 106%;
+  //background-position: 40% 56%;
+  background-repeat: no-repeat;
+
+}
+.brandlogo {
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.topright {
+  display: inline-block;
+  float: left;
+  line-height: 2;
+  i {
+    padding-right: 12px;
+  }
+}
+
+.toprow {
+  border-bottom: 2px solid #1389bb!important;
+}
+
+.bg-back-color {
+  background-color: #eee;
+}
+.bg-color {
+  @include single-box-shadow(0px, -2px, 4px, 0px, #555);
+  background-color: white;
+}
+
+.bgtop {
+  @include bgtop;
+  display: block;
+/*   text-indent: -9999px;
+  background-image: url(../images/bg-top.svg) no-repeat top left;
+  background-size: 438px 153px; */
+  width: 420px;
+  height: 103px;
+
+}
+
+.link {
+    display:inline-block;
+    float: right;
+    padding-top: 12px;
+    }
+
+ul.nav.nav-pills {
+  vertical-align: middle;
+  margin-left: 25px;
+  li {
+    a {
+      display: block;
+    }
+  }
+}
+
+.category_menu {
+    border-top: 2px solid #ccc;
+    @include box-sizing(content-box);
+    display: block;
+    float: left;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    background-image: url(../images/forSprite/button_base.png);
+    margin-left: -5px;
+    margin-right: -8px;
+    background-size: 100% 100%;
+    width: 189px;
+    height: 45px; 
+}
+
+.menu_blue {
+    background-image: url(../images/forSprite.png);
+    background-position: 50% 338px;
+    background-size: cover;
+    a {
+      margin-left: 40px;
+    }
+    &:hover {
+      background-image: url(../images/forSprite.png);
+      background-position: 50% 179px;
+      background-size: cover;
+    }
+}
+
+.menu_green {
+    background-image: url(../images/forSprite.png);
+    background-position: 50% 285px;
+    background-size: cover;
+    a {
+      margin-left: 63px;
+    }
+    &:hover {
+      background-image: url(../images/forSprite.png);
+      background-position: 50% 125px;
+      background-size: cover;
+    }
+}
+
+.menu_red {
+    background-image: url(../images/forSprite.png);
+      background-position: 50% 232px;
+      background-size: cover;
+    a {
+      margin-left: -10px;
+    }
+    &:hover {
+      background-image: url(../images/forSprite.png);
+      background-position: 50% 71px;
+      background-size: cover;
+    }
+}
+
+ul {
+  li.menu {
+    @include box-sizing(content-box);
+    display: inline-block;
+    float: left;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    min-width: 320px;
+    width: 320px;
+    height: 52px;
+    margin-left: -10px;
+    font-size: 18px;
+    a {
+      width: 320px;
+      height: 52px;
+      color: #555;
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+}
+
+
+.corner {
+    position: relative;
+    background-color: #0066CC;
+    @include border-bottom-left-radius(10px);
+    @include border-bottom-right-radius(20px);
+    @include box-shadow(grey 2px 1px 10px);
+
+    &:after {
+      content: ' ';
+      position: absolute;
+      width: 0px;
+      height: 0px;
+      top: 0px;
+      left: 0px;
+      border-style: solid;
+      border-width: 20px 60px 0 0;
+      border-color: transparent transparent white transparent;
+
+
+    }
+    &:before{
+      content: ' ';
+      position:absolute;
+      width: 0px;
+      height: 0px;
+      bottom: 0px;
+      right: 0px;
+      border-style: solid;
+      border-width: 0 0 15px 35px;
+      border-color: transparent transparent white transparent;
+      @include box-shadow(grey 2px 1px -20px);
+    }
+}

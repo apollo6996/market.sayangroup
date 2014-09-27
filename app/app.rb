@@ -53,6 +53,10 @@ module MarketSayangroup
     #   end
     #
 
+get :index, :map => "/" do
+    render 'index'
+end
+
     ##
     # You can manage errors like:
     #

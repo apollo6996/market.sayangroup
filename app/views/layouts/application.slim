@@ -1,0 +1,59 @@
+doctype 5
+html lang='en'
+  head
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    meta content='text/html; charset=utf-8' http-equiv='Content-Type'
+    meta name='viewport' content='width=device-width,initial-scale=1'
+    title = @title.present? ? "#{@title} | SayanGroup :: Market" : "SayanGroup :: Market"
+    = favicon_tag 'favicon.ico'
+    link href='http://fonts.googleapis.com/css?family=Varela' rel='stylesheet'
+    = stylesheet_link_tag 'styles', 'application', 'font-awesome'
+
+  body
+    header
+      .container-fluid.bg-back-color
+        .container.bg-color
+          .row.toprow
+            .col-md-4
+              = image_tag 'logo.png', :class => 'brandlogo'
+            .col-md-5.bgtop
+            .col-md-3
+              .topright
+                i.fa.fa-phone 
+                | &nbsp + 7 499 714 88 66 
+                br
+                i.fa.fa-envelope &nbsp
+                a href="#" контакты
+              
+          .row 
+            .col-md-12
+              == yield
+          .row
+            .col-md-8
+              h2 Каталог Товаров
+            .col-md-4
+              h3
+                i.fa.fa-shopping-cart 
+                | &nbsp Корзина пуста
+          .row
+            .col-md-12
+              ul.nav.nav-pills
+                li.category_menu
+                    a href="#" 
+                      .link Опоры
+                li.category_menu
+                    a href="#" 
+                      .link Доска
+                li.category_menu
+                    a href="#"
+                      .link Навесы
+                li.category_menu
+                    a href="#"
+                      .link Сетка
+                li.category_menu
+                    a href="#"
+                      .link Газон
+              

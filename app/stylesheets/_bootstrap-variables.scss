@@ -16,7 +16,7 @@
 // $gray-darker:            lighten(#000, 13.5%) // #222
 // $gray-dark:              lighten(#000, 20%)   // #333
 // $gray:                   lighten(#000, 33.5%) // #555
-// $gray-light:             lighten(#000, 46.7%) // #777
+$gray-light:             lighten(#000, 46.7%); // #777
 // $gray-lighter:           lighten(#000, 93.5%) // #eee
 
 // $brand-primary:         #428bca
@@ -43,7 +43,7 @@
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-// $font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif
+$font-family-sans-serif:  'Ubuntu', Helvetica, Arial, sans-serif;
 // $font-family-serif:       Georgia, "Times New Roman", Times, serif
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 // $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace
@@ -104,7 +104,7 @@
 // $line-height-large:         1.33
 // $line-height-small:         1.5
 
-// $border-radius-base:        4px
+$border-radius-base:        0px;
 // $border-radius-large:       6px
 // $border-radius-small:       3px
 
@@ -298,9 +298,9 @@
 //## Define your custom responsive grid.
 
 //** Number of columns in the grid.
-// $grid-columns:              12
+$grid-columns:              12;
 //** Padding between columns. Gets divided in half for the left and right.
-// $grid-gutter-width:         30px
+$grid-gutter-width:         99px;
 // Navbar collapse
 //** Point at which the navbar becomes uncollapsed.
 // $grid-float-breakpoint:     $screen-sm-min
@@ -317,30 +317,30 @@
 // $container-sm:                 $container-tablet
 
 // Medium screen / desktop
-// $container-desktop:            ((940px + $grid-gutter-width))
+$container-desktop:            ((990px + $grid-gutter-width));
 //** For `$screen-md-min` and up.
-// $container-md:                 $container-desktop
+$container-md:                 $container-desktop;
 
 // Large screen / wide desktop
 // $container-large-desktop:      ((1140px + $grid-gutter-width))
 //** For `$screen-lg-min` and up.
-// $container-lg:                 $container-large-desktop
+$container-lg:                 $container-md;
 
 //== Navbar
 //
 //##
 
 // Basics of a navbar
-// $navbar-height:                    50px
-// $navbar-margin-bottom:             $line-height-computed
-// $navbar-border-radius:             $border-radius-base
-// $navbar-padding-horizontal:        floor(($grid-gutter-width / 2))
-// $navbar-padding-vertical:          (($navbar-height - $line-height-computed) / 2)
+$navbar-height:                    55px;
+$navbar-margin-bottom:             30px;
+$navbar-border-radius:             0;
+$navbar-padding-horizontal:        0;//floor(($grid-gutter-width / 2))
+//$navbar-padding-vertical:          0;//(($navbar-height - $line-height-computed) / 2)
 // $navbar-collapse-max-height:       340px
 
 // $navbar-default-color:             #777
 // $navbar-default-bg:                #f8f8f8
-// $navbar-default-border:            darken($navbar-default-bg, 6.5%)
+$navbar-default-border:            0;//darken($navbar-default-bg, 6.5%)
 
 // Navbar links
 // $navbar-default-link-color:                #777
@@ -391,8 +391,8 @@
 //##
 
 //=== Shared nav styles
-// $nav-link-padding:                          10px 15px
-// $nav-link-hover-bg:                         $gray-lighter
+$nav-link-padding:                          0px 40%;
+$nav-link-hover-bg:                         transparent;
 
 // $nav-disabled-link-color:                   $gray-light
 // $nav-disabled-link-hover-color:             $gray-light
@@ -413,8 +413,8 @@
 
 //== Pills
 // $nav-pills-border-radius:                   $border-radius-base
-// $nav-pills-active-link-hover-bg:            $component-active-bg
-// $nav-pills-active-link-hover-color:         $component-active-color
+$nav-pills-active-link-hover-bg:            transparent;
+$nav-pills-active-link-hover-color:         transparent;
 
 //== Pagination
 //
