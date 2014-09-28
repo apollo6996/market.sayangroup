@@ -5,7 +5,7 @@ module MarketSayangroup
     register CompassInitializer
 
 
-    enable :sessions,
+    enable :sessions
         #:key => ''
     DataMapper.auto_upgrade! 
 

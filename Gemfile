@@ -26,6 +26,7 @@ gem 'dm-constraints'
 gem 'dm-aggregates'
 gem 'dm-types'
 gem 'dm-core'
+#gem 'dm-active_model'
 gem 'i18n'
 
 # Test requirements
