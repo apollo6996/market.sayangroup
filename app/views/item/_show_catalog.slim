@@ -1,0 +1,8 @@
+h2 Тестовые товары  
+-@items.each do |item|
+  h5= "#{item.name}, #{item.price} руб."
+  = form_tag '/cart_item/cart_items', :method => 'POST' do
+    = hidden_field_tag :item_id, :value => item.id
+    = number_field_tag :qty, :value => 1, :min => 1, :max => 100
+    = submit_tag :class => 'btn btn-primary', :value => 'Добавить в Корзину!'
+    = flash_tag :notice

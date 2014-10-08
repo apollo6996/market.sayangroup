@@ -10,7 +10,7 @@ html lang='en'
     title = @title.present? ? "#{@title} | SayanGroup :: Market" : "SayanGroup :: Market"
     = favicon_tag 'favicon.ico'
     link href='http://fonts.googleapis.com/css?family=Varela' rel='stylesheet'
-    = stylesheet_link_tag 'styles', 'application', 'font-awesome'
+    = stylesheet_link_tag 'styles', 'application', 'font-awesome', 'theme_2', 'theme_2_responsive'
 
   body
     header
@@ -32,28 +32,44 @@ html lang='en'
             .col-md-12
               == yield
           .row
-            .col-md-8
+            .col-md-7
               h2 Каталог Товаров
-            .col-md-4
+            .col-md-5
               h3
-                i.fa.fa-shopping-cart 
-                | &nbsp Корзина пуста
+                i.fa.fa-shopping-cart.cart_float &nbsp
+                
+                - if !defined? show_small_cart
+                  - show_small_cart
+                  - if @qty && @price != 0
+                    .cart_float.pad_bot== " <a href='#'>В корзине</a>: #{@qty} шт. - #{@price} руб."
+                    .link_order    
+                      a href="#" ОФОРМИТЬ ЗАКАЗ
+                -else
+                  | &nbsp Корзина пуста
+
           .row
             .col-md-12
-              ul.nav.nav-pills
-                li.category_menu
-                    a href="#" 
-                      .link Опоры
-                li.category_menu
-                    a href="#" 
-                      .link Доска
-                li.category_menu
-                    a href="#"
-                      .link Навесы
-                li.category_menu
-                    a href="#"
-                      .link Сетка
-                li.category_menu
-                    a href="#"
-                      .link Газон
+              = form_tag url('image/new_image', :post), :enctype =>"multipart/form-data" do
+                input type="file" name="file"
+                //= file_field_tag :name => 'file'
+                = submit_tag 'Загрузить', :class => 'btn btn-primary'
+              -if @image
+                = image_tag ("#{@image.file.url}")
+
+          / .row
+          /   .col-md-12
+          /     = partial 'category_menu_dropdown'
+          .row
+            .col-md-12
+              = partial 'item/show_catalog'
+
+    = javascript_include_tag 'jquery.min', 'talos_submenu.min', 'custom', 'application'          
+
+
+
+
+
+
+
+
               

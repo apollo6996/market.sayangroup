@@ -1,3 +1,5 @@
+require 'carrierwave'
+
 module MarketSayangroup
   class Admin < Padrino::Application
     register Padrino::Mailer

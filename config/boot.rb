@@ -5,8 +5,8 @@ PADRINO_ROOT = File.expand_path('../..', __FILE__) unless defined?(PADRINO_ROOT)
 # Load our dependencies
 require 'rubygems' unless defined?(Gem)
 require 'bundler/setup'
-Bundler.require(:default, RACK_ENV)
 require 'active_support/concern'
+Bundler.require(:default, RACK_ENV)
 
 ##
 # ## Enable devel logging
@@ -36,6 +36,8 @@ require 'active_support/concern'
 # Add your before (RE)load hooks here
 #
 Padrino.before_load do
+  CarrierWave.root = File.join(Padrino.root, "public/")
+  Padrino.dependency_paths << Padrino.root('lib/*.rb')
   I18n.default_locale = :ru
 end
 

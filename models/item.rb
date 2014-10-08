@@ -7,12 +7,16 @@ class Item
   property :descipt,        Text
   property :price,          Integer
   property :virtual_item,   Boolean
-  property :category_id,    Integer
 
-  property :material,       String
-  property :adjrange,       String
+  property :material,       Text
+  property :adjrange,       Text
+  property :color,          Text
+  property :weigth,         Text
+  property :gabarits,       Text
+  property :power,          Text
 
   belongs_to :category
+  has n, :uploads, constraint: :destroy, :through => Resource
   has n, :cart_items
   has n, :carts, :through => :cart_items
 
@@ -20,10 +24,8 @@ class Item
 
   def validation_of_reference_by_cart_items
     
-    cart_items.empty ? true : errors.add(:base, 'Cуществуют товарные позиции.')
+    cart_items.empty? ? true : errors.add(:base, 'Cуществуют товарные позиции.')
 
   end
 
 end
-
-DataMapper.finalize 

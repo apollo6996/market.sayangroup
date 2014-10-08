@@ -19,6 +19,15 @@ MarketSayangroup::Admin.controllers :items do
       @getattrs = @attrs[@attrs_hash]
     end
 
+    def upload_image
+      @image = @item.uploads.new(:item_id => @item.id)
+      @image.file = params[:file]
+      @image.save
+    end
+
+    def get_image
+        @image = Upload.all(:item_id => params[:id])
+      end
   end
 
   before do
@@ -41,6 +50,7 @@ MarketSayangroup::Admin.controllers :items do
   post :create do
     @item = Item.new(params[:item])
     if @item.save
+      upload_image
       @title = pat(:create_title, :model => "item #{@item.id}")
       flash[:success] = pat(:create_success, :model => 'Item')
       params[:save_and_continue] ? redirect(url(:items, :index)) : redirect(url(:items, :edit, :id => @item.id))
@@ -61,6 +71,7 @@ MarketSayangroup::Admin.controllers :items do
   end
 
   get :edit, :with => :id do
+    get_image
     @title = pat(:edit_title, :model => "item #{params[:id]}")
     @item = Item.get(params[:id])
     if @item
@@ -72,9 +83,11 @@ MarketSayangroup::Admin.controllers :items do
   end
 
   put :update, :with => :id do
+    get_image
     @title = pat(:update_title, :model => "item #{params[:id]}")
     @item = Item.get(params[:id])
     if @item
+      upload_image
       if @item.update(params[:item])
         flash[:success] = pat(:update_success, :model => 'Item', :id =>  "#{params[:id]}")
         params[:save_and_continue] ?

@@ -1,0 +1,153 @@
+/* Talos - Animated Horizontal Submenu (Theme 2) */
+body{
+	margin:0;
+	}	
+/* ========== THE MAIN FONT ========== */
+@font-face{
+	font-family:"BebasNeue";
+	src:url('../fonts/BebasNeue.eot');
+	src:url('../fonts/BebasNeue.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/BebasNeue.woff') format('woff'),
+		url('../fonts/BebasNeue.ttf') format('truetype'),
+		url('../fonts/BebasNeue.svg#BebasNeue') format('svg');
+	}
+/* ========== MAIN DIV THAT HOLDS THE ENTIRE MENU ========== */
+.menu_container{
+	width:916px;
+	height:80px;
+	margin:10px auto 0;
+	background:#FF8533;
+	border-bottom:solid 1px #FF7315;
+	overflow:hidden;
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	border-radius:3px;
+	-webkit-box-shadow:0 0 6px #BFBFBF;
+	-moz-box-shadow:0 0 6px #BFBFBF;
+	box-shadow:0 0 6px #BFBFBF;
+	}
+.menu{
+	height:45px;
+	background: transparent;
+	}
+/* ========== DIV THAT HOLDS MAIN LINKS ========== */
+.menu ul{
+	margin:0;
+	padding:0;
+	position:relative;
+	float:left;
+	list-style:none;
+	}
+/* ========== MAIN LINKS ========== */
+.menu ul li{
+	float:left;
+	}
+
+.menu ul li.top_category{
+	float:left;
+	background-image: url(../images/forSprite/button_base.png);
+  background-size: 100% 100%;
+  width: 189px;
+  margin-right: -2px;
+  margin-left: -4px;
+	}
+.menu ul li a{
+	display:block;
+	height:45px;
+	padding:0 13px;
+	font:18px/20px;
+	color:#555;
+	text-decoration:none;
+	/*border-right:solid 1px #1E1E1E;*/
+	-webkit-transition:color 170ms linear 20ms, background 170ms linear 20ms;
+	-moz-transition:color 170ms linear 20ms, background 170ms linear 20ms;
+	-ms-transition:color 170ms linear 20ms, background 170ms linear 20ms;
+	-o-transition:color 170ms linear 20ms, background 170ms linear 20ms;
+	transition:color 170ms linear 20ms, background 170ms linear 20ms;
+	}
+/* ========== Safari Fix ========== */
+.menu ul li:first-child a{
+	border-top-left-radius:3px;
+	}
+/* ========== MAIN LINKS ON MOUSEOVER ========== */
+.menu > ul > li.current > a, .menu > ul > li.current:hover > a, .menu > ul > li:hover > a{
+	/*color:#FF8533;
+	background:#282828;*/
+	}
+/* ========== MAIN LINKS ON MOUSE CLICK ========== */	
+.menu > ul > li > a:active, .menu > ul > li.current > a:active{
+	background:#1F1F1F;
+	}
+/* ========== SUBMENU ========== */	
+.menu ul ul{
+	width:940px;
+	height:35px;
+	position:absolute;
+	left:0;
+	visibility:hidden;
+	display: none;
+	opacity:0;
+	}
+.animation-1 ul ul, .no-js ul ul{
+	-webkit-transition:all 170ms linear 10ms;
+	-moz-transition:all 170ms linear 10ms;
+	-ms-transition:all 170ms linear 10ms;
+	-o-transition:all 170ms linear 10ms;
+	transition:all 170ms linear 10ms;
+	}
+.animation-2 ul ul, .animation-3 ul ul, .animation-4 ul ul{
+	-webkit-transition:all 250ms ease-out 10ms;
+	-moz-transition:all 250ms ease-out 10ms;
+	-ms-transition:all 250ms ease-out 10ms;
+	-o-transition:all 250ms ease-out 10ms;
+	transition:all 250ms ease-out 10ms;
+	}
+.animation-2 ul ul{
+	margin-top:31px;
+	}	
+.animation-3 ul ul{
+	margin-left:38px;
+	}
+.animation-4 ul ul{
+	margin-left:-42px;
+	}	
+.menu ul li.current ul{
+	visibility:visible;
+	opacity:1;
+	margin:0;
+	}
+/* ===== JavaScript Is Disabled ===== */	
+.no-js ul:hover li.current ul{
+	visibility:hidden;
+	opacity:0;
+	}
+.no-js ul li.current ul, .no-js ul li.current:hover ul, .no-js ul li:hover ul{
+	display:block;
+	visibility:visible;
+	opacity:1;
+	}
+/* ========== LINKS IN SUBMENU ========== */	
+.menu ul ul li.current{
+	background:#FF7315;	
+	}
+.menu ul ul li a{
+	display:inline;
+	margin:0 10px;
+	padding:0;
+	font-size:19px;
+	color:#333;
+	line-height:34px;
+	border-right:none;
+	-webkit-transition-duration:140ms;
+	-moz-transition-duration:140ms;
+	-ms-transition-duration:140ms;
+	-o-transition-duration:140ms;
+	transition-duration:140ms;
+	}
+.menu ul ul li:first-child a{
+	margin-left:13px;
+	}
+/* ========== LINKS ON MOUSEOVER IN SUBMENU ========== */
+.menu ul ul li.current a, .menu ul ul li a:hover{
+	color:#FFF;
+	}

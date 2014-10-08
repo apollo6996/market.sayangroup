@@ -4,10 +4,15 @@ module MarketSayangroup
     register Padrino::Helpers
     register CompassInitializer
 
+    #register Padrino::Cache  # includes helpers
+    #enable :caching          # turns on caching
+
 
     enable :sessions
+  configure :development do
+   # register BaristaInitializer
+  end
         #:key => ''
-    DataMapper.auto_upgrade! 
 
     ##
     # Caching support.
@@ -53,10 +58,15 @@ module MarketSayangroup
     #     disable :asset_stamp # no asset timestamping for dev
     #   end
     #
+before do
+    get_catalog
+end
 
 get :index, :map => "/" do
+    get_latest_image
     render 'index'
 end
+
 
     ##
     # You can manage errors like:

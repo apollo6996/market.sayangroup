@@ -300,7 +300,7 @@ $border-radius-base:        0px;
 //** Number of columns in the grid.
 $grid-columns:              12;
 //** Padding between columns. Gets divided in half for the left and right.
-$grid-gutter-width:         99px;
+$grid-gutter-width:         86px;
 // Navbar collapse
 //** Point at which the navbar becomes uncollapsed.
 // $grid-float-breakpoint:     $screen-sm-min
@@ -317,7 +317,7 @@ $grid-gutter-width:         99px;
 // $container-sm:                 $container-tablet
 
 // Medium screen / desktop
-$container-desktop:            ((990px + $grid-gutter-width));
+$container-desktop:            ((940px + $grid-gutter-width));
 //** For `$screen-md-min` and up.
 $container-md:                 $container-desktop;
 

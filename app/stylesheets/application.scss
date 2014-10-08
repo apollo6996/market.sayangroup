@@ -19,7 +19,7 @@
 
 }
 .brandlogo {
-  padding-left: 20px;
+  //padding-left: 20px;
   padding-top: 20px;
 }
 
@@ -63,28 +63,12 @@
 
 ul.nav.nav-pills {
   vertical-align: middle;
-  margin-left: 25px;
+  margin-left: 5px;
   li {
     a {
       display: block;
     }
   }
-}
-
-.category_menu {
-    border-top: 2px solid #ccc;
-    @include box-sizing(content-box);
-    display: block;
-    float: left;
-    position: relative;
-    cursor: pointer;
-    overflow: hidden;
-    background-image: url(../images/forSprite/button_base.png);
-    margin-left: -5px;
-    margin-right: -8px;
-    background-size: 100% 100%;
-    width: 189px;
-    height: 45px; 
 }
 
 .menu_blue {
@@ -130,7 +114,7 @@ ul.nav.nav-pills {
 }
 
 ul {
-  li.menu {
+  li.top_menu {
     @include box-sizing(content-box);
     display: inline-block;
     float: left;
@@ -138,7 +122,7 @@ ul {
     cursor: pointer;
     overflow: hidden;
     min-width: 320px;
-    width: 320px;
+    width: 321px;
     height: 52px;
     margin-left: -10px;
     font-size: 18px;
@@ -153,37 +137,125 @@ ul {
   }
 }
 
-
-.corner {
+.category_nav {
+  margin-left: 125px;
+  display: inline-block;
+  position: relative;
+  cursor: default;
+  z-index: 500;
+  
+  padding: 0;
+  border: 0;
+  outline: 0;
+  a, ul, li, div, form, input {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+  }
+  a { text-decoration: none;}
+  li { list-style: none; }
+  & > li {
+    display: block;
+    float: left;
+  }
+  & > li > a {
+    border-top: 2px solid #ccc;
+    @include box-sizing(content-box);
+    //@include single-transition(all, .3s, ease);
     position: relative;
-    background-color: #0066CC;
-    @include border-bottom-left-radius(10px);
-    @include border-bottom-right-radius(20px);
-    @include box-shadow(grey 2px 1px 10px);
-
-    &:after {
-      content: ' ';
-      position: absolute;
-      width: 0px;
-      height: 0px;
-      top: 0px;
-      left: 0px;
-      border-style: solid;
-      border-width: 20px 60px 0 0;
-      border-color: transparent transparent white transparent;
-
-
+    display: block;
+    background-image: url(../images/forSprite/button_base.png);
+    margin-right: -5px;
+    background-size: 100% 100%;
+    width: 189px;
+    height: 45px;
+    z-index: 510;
+    text-align: center;
+    //padding-left: 30%;
+    line-height: 37px;
+  }
+  & > li > div {
+    @include single-transition (all, .3s, ease, .15s);
+    position: absolute;
+    display: block;
+    width: 736px;
+    left: 0;
+    top: 10px;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    margin-left: 4px;
+    padding-top: 30px;
+    background: #FF8533;
+    background-color: #e2650b; // Old browsers
+    @include filter-gradient(#e2650b, #ffa366, vertical); // IE6-8
+    $experimental-support-for-svg: true;
+    @include background-image(linear-gradient(top,  #e2650b 42%,#ffa366 100%));
+    border-radius: 0 0 6px 6px;
+    & > ul > li {
+      display: block;
+      float: left;
+      width: 184px;
+      //padding-left: 5%;
     }
-    &:before{
-      content: ' ';
-      position:absolute;
-      width: 0px;
-      height: 0px;
-      bottom: 0px;
-      right: 0px;
-      border-style: solid;
-      border-width: 0 0 15px 35px;
-      border-color: transparent transparent white transparent;
-      @include box-shadow(grey 2px 1px -20px);
+    & > ul > li.shorten {
+      display: block;
+      float: left;
+      width: 144px;
+      //padding-left: 5%;
     }
+    & > ul > li > a {
+      @include single-text-shadow(1px, 1px, 1px, false, #222);
+      position: relative;
+      display: block;
+      text-align: center;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      color: #FFF;
+    }
+    & > ul > li > a:hover {
+      color: #428bca;
+    }
+  }
+  & > li:hover > div {
+    opacity: 1;
+    visibility: visible;
+    overflow: visible;
+    
+  }
+
 }
+
+.category_menu_tab {
+    border-top: 2px solid #ccc;
+    @include box-sizing(content-box);
+    display: block;
+    float: left;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    background-image: url(../images/forSprite/button_base.png);
+    margin-left: -5px;
+    margin-right: -8px;
+    background-size: 100% 100%;
+    width: 189px;
+    height: 45px; 
+}
+
+.cart_float {
+  display: block;
+  float: left;
+}
+.pad_bot {
+  padding-top: 5px;
+  font-size: 17px;
+}
+
+.link_order {
+  display: inline-block;
+  padding-left: 26%;
+  line-height: 2;
+  font-size: 13px;
+}
+

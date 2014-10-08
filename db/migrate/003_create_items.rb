@@ -7,9 +7,12 @@ migration 3, :create_items do
       column :price,          DataMapper::Property::Integer
       column :virtual_item,   DataMapper::Property::Boolean
       column :category_id,    DataMapper::Property::Integer
-      column :material,       DataMapper::Property::String
-      column :adjrange,       DataMapper::Property::String
-
+      column :material,       DataMapper::Property::Text
+      column :adjrange,       DataMapper::Property::Text
+      column :color,          DataMapper::Property::Text
+      column :weigth,         DataMapper::Property::Text
+      column :gabarits,       DataMapper::Property::Text
+      column :power,          DataMapper::Property::Text
     end
   end
 
