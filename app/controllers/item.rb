@@ -20,7 +20,11 @@ MarketSayangroup::App.controllers :item do
   # end
   
 before do
-  get_catalog
+end
+
+get :get_item, :with => :id do
+  get_item_and_image
+  render 'item/item'
 end
 
 #get :index do

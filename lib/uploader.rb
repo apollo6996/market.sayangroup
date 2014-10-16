@@ -6,7 +6,7 @@ class Uploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   # include CarrierWave::ImageScience
   include CarrierWave::MiniMagick
-    process :resize_to_fit => [300, 300]
+    process :resize_to_fit => [280, 225]
 
   ##
   # Storage type

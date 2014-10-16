@@ -21,6 +21,10 @@ module MarketSayangroup
       def get_image
         @image = Upload.first(params[:id])
       end
+
+      def get_catalog_image(id)
+        @imageface = Upload.first(:item_id => id)
+      end
     end
 
     helpers ImageHelper

@@ -36,7 +36,7 @@ MarketSayangroup::Admin.controllers :items do
   end
 
   get :index do
-    @title = "Items"
+    @title = "Товары"
     @items = Item.all
     render 'items/index'
   end

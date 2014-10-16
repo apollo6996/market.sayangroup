@@ -1,11 +1,13 @@
-ul.nav.nav-pills
-  li.top_menu.menu_blue
-      a href="#" 
-        .link Производство
-  li.top_menu.menu_green
-      a href="#" 
-        .link Проектирование
-  li.top_menu.menu_red
-      a href="#"
-        .link Магазин
+.row
+  .col-md-7
+    h2 Каталог Товаров
+  .col-md-5
+    = partial 'small_cart'
+
+/ .row
+/   .col-md-12
+/     = partial 'category_menu_dropdown'
+.row
+  .col-md-12
+    = partial 'item/show_catalog'
 

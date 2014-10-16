@@ -3,7 +3,7 @@ class CartItem
 
   # property <name>, <type>
   property :id,           Serial
-  property :qty,          Integer
+  property :qty,          Integer, :default => 1
   property :variant,      String
   property :price,        Integer
   property :amount,       Integer

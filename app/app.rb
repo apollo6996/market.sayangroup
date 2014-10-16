@@ -63,7 +63,6 @@ before do
 end
 
 get :index, :map => "/" do
-    get_latest_image
     render 'index'
 end
 

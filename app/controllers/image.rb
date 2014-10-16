@@ -28,4 +28,19 @@ MarketSayangroup::App.controllers :image do
     redirect url(:index)
   end
 
+  delete :destroy, :with => :id do
+    image = Upload.get(params[:id])
+    if image
+      if image.destroy
+        flash[:success] = pat(:delete_success, :model => 'Upload', :id => "#{params[:id]}")
+      else
+        flash[:error] = pat(:delete_error, :model => 'upload')
+      end
+      redirect url(:items, :index)
+    else
+      flash[:warning] = pat(:delete_warning, :model => 'upload', :id => "#{params[:id]}")
+      halt 404
+    end
+  end
+
 end

@@ -10,5 +10,5 @@ class Upload
   property :created_at, DateTime
   mount_uploader :file, Uploader
 
-  belongs_to :item
+  belongs_to :item, constraint: :destroy
 end

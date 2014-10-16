@@ -12,56 +12,77 @@ html lang='en'
     link href='http://fonts.googleapis.com/css?family=Varela' rel='stylesheet'
     = stylesheet_link_tag 'styles', 'application', 'font-awesome', 'theme_2', 'theme_2_responsive'
 
-  body
-    header
-      .container-fluid.bg-back-color
-        .container.bg-color
-          .row.toprow
-            .col-md-4
-              = image_tag 'logo.png', :class => 'brandlogo'
-            .col-md-5.bgtop
-            .col-md-3
-              .topright
-                i.fa.fa-phone 
-                | &nbsp + 7 499 714 88 66 
-                br
-                i.fa.fa-envelope &nbsp
-                a href="#" контакты
-              
-          .row 
-            .col-md-12
-              == yield
-          .row
-            .col-md-7
-              h2 Каталог Товаров
-            .col-md-5
-              h3
-                i.fa.fa-shopping-cart.cart_float &nbsp
-                
-                - if !defined? show_small_cart
-                  - show_small_cart
-                  - if @qty && @price != 0
-                    .cart_float.pad_bot== " <a href='#'>В корзине</a>: #{@qty} шт. - #{@price} руб."
-                    .link_order    
-                      a href="#" ОФОРМИТЬ ЗАКАЗ
-                -else
-                  | &nbsp Корзина пуста
+  .container-fluid.bg-back-color
+    .container.bg-color
+      header
+        .row.toprow
+          .col-md-4
+            = image_tag 'logo.png', :class => 'brandlogo'
+          .col-md-5.bgtop
+          .col-md-3
+            .topright
+              i.fa.fa-phone 
+              | &nbsp + 7 499 714 88 66 
+              br
+              i.fa.fa-envelope &nbsp
+              a href="#" контакты
+        .row
+          .col-md-12
+            ul.nav.nav-pills
+              li.top_menu.menu_blue
+                  a href="#" 
+                    .link Производство
+              li.top_menu.menu_green
+                  a href="#" 
+                    .link Проектирование
+              li.top_menu.menu_red
+                  a href="/"
+                    .link Магазин    
+      body
+        .row 
+          .col-md-12
+            == yield
 
-          .row
-            .col-md-12
-              = form_tag url('image/new_image', :post), :enctype =>"multipart/form-data" do
-                input type="file" name="file"
-                //= file_field_tag :name => 'file'
-                = submit_tag 'Загрузить', :class => 'btn btn-primary'
-              -if @image
-                = image_tag ("#{@image.file.url}")
-
-          / .row
-          /   .col-md-12
-          /     = partial 'category_menu_dropdown'
-          .row
-            .col-md-12
-              = partial 'item/show_catalog'
+      footer
+        .row
+          .col-md-12
+            nav
+              ul
+                li
+                  a href="" Главная
+                li
+                  a href="" Производство
+                li
+                  a href="" Проектирование
+                li
+                  a href="" Магазин
+                li
+                  a href="" Контакты
+                li
+                  a href="" Партнеры
+                li
+                  a href="" Новости
+        .row
+          .col-md-9
+            .social
+              ul
+                li
+                  a.bigsoc href=""
+                    i.fa.fa-facebook-square
+                li
+                  a.bigsoc href=""
+                    i.fa.fa-vk
+                li
+                  a.bigsoc href=""
+                    i.fa.fa-instagram
+                li
+                  i.fa.fa-phone 
+                  | &nbsp + 7 499 714 88 66 
+                li
+                  i.fa.fa-envelope &nbsp
+                  a href="#" контакты
+          .col-md-3
+            = image_tag ('http://sayangroup.ru/wp-content/themes/sayan/images/logos/footer_logo.png'), :class => 'footer_logo'
 
     = javascript_include_tag 'jquery.min', 'talos_submenu.min', 'custom', 'application'          
 

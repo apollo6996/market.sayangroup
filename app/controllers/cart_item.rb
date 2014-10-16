@@ -4,6 +4,11 @@ MarketSayangroup::App.controllers :cart_item do
 before :show, :edit, :update, :destroy do 
   set_cart_item  
 end
+  
+  get :cart do
+    show_full_cart
+    render 'cart/cart'
+  end
 
   get :cart_items do
 
@@ -18,8 +23,11 @@ end
   end
 
   post :cart_items do
-    set_cart
-    create
+    if set_cart
+      create
+    else
+      halt 401
+    end
   end
 
   put :cart_items do

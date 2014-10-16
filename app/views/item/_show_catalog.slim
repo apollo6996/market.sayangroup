@@ -1,8 +1,16 @@
 h2 Тестовые товары  
+
 -@items.each do |item|
-  h5= "#{item.name}, #{item.price} руб."
-  = form_tag '/cart_item/cart_items', :method => 'POST' do
-    = hidden_field_tag :item_id, :value => item.id
-    = number_field_tag :qty, :value => 1, :min => 1, :max => 100
-    = submit_tag :class => 'btn btn-primary', :value => 'Добавить в Корзину!'
-    = flash_tag :notice
+  -if item != nil
+    .item
+      - get_catalog_image(item.id)
+      = image_tag ("#{@imageface.file.url}")
+      h2== "<a href='/item/get_item/#{item.id}'>#{item.name}</a>" 
+      hr
+      h3== "Цена: <span class='price'> #{item.price} </span> руб."
+      = form_tag '/cart_item/cart_items', :method => 'POST' do
+        = hidden_field_tag :item_id, :value => item.id
+        //= number_field_tag :qty, :value => 1, :min => 1, :max => 100
+        = submit_tag :class => 'to_cart', :value => 'Добавить в Корзину!'
+
+        = flash_tag :notice

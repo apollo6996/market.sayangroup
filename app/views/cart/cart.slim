@@ -1,0 +1,24 @@
+.row
+  .col-md-7
+    h2 Корзина
+  .col-md-5
+    = partial 'small_cart'
+hr.orange
+
+.row
+  .col-md-12
+    table.table.table-hover
+        thead
+          tr
+            th Название
+            th Количество
+            th Цена за шт.
+            th Итого
+        tbody
+        - @full_cart.cart_items.each do |item|
+          -find_item(item.item_id)
+          tr
+            td #{@item.name}
+            td.qty_cart= number_field_tag :qty, :value => "#{item.qty}" , :min => 1, :max => 100
+            td #{item.price} руб.
+            td.total_cart #{item.price * item.qty} руб.
