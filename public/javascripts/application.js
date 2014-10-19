@@ -2,24 +2,38 @@
 $(document).ready(function() {
 
 
-  $( 'input[name="qty"]' ).change(
+  $( '.qty_cart' ).change(
     function () {
-    //event.preventDefault();
-    //var url = $(form).attr("action");
-    var formData = $(this).serialize();
-      $.ajax("/cart_item/cart/9", {
-        type :    "GET",
-        data :    formData,
+    var qty = $(this).val();
+    var itemId = $(this).next('.item_id').val();
+    var price = $(this).parent().find('.cart_price').val();
+    var url = "/cart_item/change_qty/" + itemId + "/" + qty;
+    var total = price * qty;
+    var innersum = 0;
+
+    var str1 = '<td id="total_' + itemId
+    var str2 = '">'
+      $.ajax(url, {
+        type :    "PUT",
         success : function () {
-          alert("Количество изменилось и стало" + ' ' + formData);
-          //$(".total_cart").append()
-          $(this).load('/cart_item/cart/'); 
-          //$('#testers').load('/eye_testers');
+          $('#total_' + itemId).replaceWith(str1 + str2 + total + " " + 'руб.</td>');
+          
+          $('#item_total_' + itemId).attr('value', total )
+
+          $('.item_total').each(function(){
+              var total_all = Number($(this).val());
+              innersum = innersum + total_all;
+              return innersum;
+              });
+          $('#total_price').replaceWith('<h4 id="total_price">Сумма:'+ ' ' + innersum +' руб.</h4>'); 
         }
       })
   // End of AJAX request
-  }
+    }
 
   );
 
+
 });
+
+

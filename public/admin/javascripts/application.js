@@ -29,20 +29,6 @@ $('select[name="item[category_id]"]').change(function(){
       $('#Category' + i).css('display','none')
     };
   })
-
-
-/*  if (el == 2)
-    {
-      $('#Category1').css('display','none');
-      $('#Category2').css('display','block')
-    }
-  else
-    {
-      alert('Опция НЕ Два')
-    }
-  */
-    /*$('#total').css('display','none');
-    $('#Category'+el).css('display','block');*/
     
 });
 

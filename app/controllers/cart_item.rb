@@ -1,9 +1,5 @@
 MarketSayangroup::App.controllers :cart_item do
 #include CurrentCart
-
-before :show, :edit, :update, :destroy do 
-  set_cart_item  
-end
   
   get :cart do
     show_full_cart
@@ -32,6 +28,15 @@ end
 
   put :cart_items do
     set_cart_item
+  end
+
+  put :change_qty, :with => [:id, :qty], :csrf_protection => false do
+    
+    if update_qty(params[:id], params[:qty])
+      render 'cart/cart'
+    else
+      halt 400
+    end
   end
 
   delete :cart_items do

@@ -1,24 +1,60 @@
-.row
-  .col-md-7
-    h2 Корзина
-  .col-md-5
-    = partial 'small_cart'
-hr.orange
-
+= csrf_meta_tags
+- show_small_cart
 .row
   .col-md-12
-    table.table.table-hover
-        thead
-          tr
-            th Название
-            th Количество
-            th Цена за шт.
-            th Итого
-        tbody
-        - @full_cart.cart_items.each do |item|
-          -find_item(item.item_id)
-          tr
-            td #{@item.name}
-            td.qty_cart= number_field_tag :qty, :value => "#{item.qty}" , :min => 1, :max => 100
-            td #{item.price} руб.
-            td.total_cart #{item.price * item.qty} руб.
+    h2 Корзина
+    hr.orange
+  //.col-md-5
+  //  = partial 'small_cart'
+
+= form_tag '/order/new', :method => 'POST' do
+  .row
+    .col-md-12
+      table.table.table-hover
+          thead
+            tr
+              th Название
+              th Количество
+              th Цена за шт.
+              th Итого
+          tbody
+          - @full_cart.cart_items.each do |item|
+            -find_item(item.item_id)
+            tr
+              td #{@item.name}
+              td
+                = number_field_tag :qty, :value => "#{item.qty}" , :class => "qty_cart", :min => 1, :max => 100
+                = hidden_field_tag :id, :class => "item_id", :value => item.id
+                = hidden_field_tag :price, :class => "cart_price", :value => item.price
+
+              td #{item.price} руб.
+              - @item_total = item.price * item.qty
+              td id="total_#{item.id}" #{@item_total} руб.
+              = hidden_field_tag :item_total, :id => "item_total_#{item.id}", :class => "item_total", :value => @item_total
+      //hr
+      .row
+        .col-md-8
+        .col-md-4
+          
+          h4#total_price== "Сумма: #{@total_price} руб."
+
+  .row
+    .col-md-12
+      h2 Ваши Контакты
+      hr.orange
+      .form-horizontal
+        .form-group
+          = label_tag "Ваше Имя", :class => "col-sm-4 control-label"
+          .col-sm-5
+            = text_field_tag :name, :type => 'text', :class => 'form-control'
+        .form-group
+          = label_tag "Телефон", :class => "col-sm-4 control-label"
+          .col-sm-5
+            = text_field_tag :phone, :type => 'text', :class => 'form-control'
+        .form-group
+          .col-sm-offset-4.col-sm-4
+            = submit_tag :class => 'to_cart', :value => 'Заказать'
+
+  //.col-md-6
+    //h2 Доставка
+    //hr.orange

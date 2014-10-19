@@ -1,10 +1,9 @@
 h3
   i.fa.fa-shopping-cart.cart_float &nbsp
-  /- show_small_cart
   - if session[:cart_id]
     - show_small_cart
-    .cart_float.pad_bot== " <a href='/cart_item/cart/'>В корзине</a>: #{@qty} шт. - #{@price} руб."
-    -if @qty && @price != 0
+    .cart_float.pad_bot== " <a href='/cart_item/cart/'>В корзине</a>: #{@qty} шт. - #{@total_price} руб."
+    -if @qty && @total_price != 0
       .link_order    
         a href="/cart_item/cart/" ОФОРМИТЬ ЗАКАЗ
   -else

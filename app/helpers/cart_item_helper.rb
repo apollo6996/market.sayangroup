@@ -19,7 +19,7 @@ module MarketSayangroup
 
       def create
         item = Item.get(params[:item_id])
-        @cart_item = @cart.cart_items.new(item: item)
+        @cart_item = @cart.add_item(item.id)
 
         if @cart_item.save
           item_full = Item.first(:id => params[:item_id])
@@ -35,15 +35,22 @@ module MarketSayangroup
         end
       end
 
+      def update_qty(id, qty)
+        @upd_cart_item = CartItem.first(:id => id)
+        @upd_cart_item.qty = qty
+        @upd_cart_item.save
+      end
+
       def show_small_cart
         if session[:cart_id]
           @cart_id = session[:cart_id]
           @full_cart = Cart.first(:id => session[:cart_id])
           @qty = 0 
-          @price = 0
+          @total_price = 0
             @full_cart.cart_items.each do |item|
-              @qty = @qty + item.qty.to_i
-              @price = @price + item.price.to_i
+              @amount = item.qty * item.price
+              @qty = @qty + item.qty
+              @total_price = @total_price + @amount
             end
         else
           false
