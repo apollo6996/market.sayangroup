@@ -16,10 +16,8 @@ $(document).ready(function() {
       $.ajax(url, {
         type :    "PUT",
         success : function () {
-          $('#total_' + itemId).replaceWith(str1 + str2 + total + " " + 'руб.</td>');
-          
+          $('#total_' + itemId).replaceWith(str1 + str2 + total + " " + 'руб.</td>');     
           $('#item_total_' + itemId).attr('value', total )
-
           $('.item_total').each(function(){
               var total_all = Number($(this).val());
               innersum = innersum + total_all;

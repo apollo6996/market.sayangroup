@@ -28,8 +28,8 @@
 
     = form_tag '/cart_item/cart_items', :method => 'POST' do
         = hidden_field_tag :item_id, :value => @this_item.id
-        | Введите количество: &nbsp
-        = number_field_tag :qty, :value => 1, :min => 1, :max => 100
+        //| Введите количество: &nbsp
+        //= number_field_tag :qty, :value => 1, :min => 1, :max => 100
         = submit_tag :class => 'to_cart', :value => 'Добавить в Корзину!'
 
     //h4 Остались вопросы?
