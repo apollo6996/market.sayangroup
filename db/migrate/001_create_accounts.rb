@@ -14,3 +14,4 @@ migration 1, :create_accounts do
     drop_table :accounts
   end
 end
+

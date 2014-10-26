@@ -10,10 +10,10 @@ class Item
 
   property :material,       Text
   property :adjrange,       Text
+  property :power,          Text
   property :color,          Text
   property :weigth,         Text
   property :gabarits,       Text
-  property :power,          Text
 
   belongs_to :category
   has n, :uploads, constraint: :destroy, :through => Resource

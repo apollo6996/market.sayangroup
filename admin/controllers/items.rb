@@ -8,10 +8,10 @@ MarketSayangroup::Admin.controllers :items do
 
     def related_attrs
       @attrs = {
-        1 => ["material", "adjrange", "color"],
-        2 => ["material", "adjrange", "weigth"],
-        3 => ["material", "adjrange", "gabarits"],
-        4 => ["material", "adjrange", "power"]
+        1 => ["material", "adjrange", "power"],
+        2 => ["weigth"],
+        3 => ["gabarits"],
+        4 => ["color"]
       }
     end
 

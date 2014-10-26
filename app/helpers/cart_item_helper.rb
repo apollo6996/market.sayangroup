@@ -31,7 +31,10 @@ module MarketSayangroup
           flash[:notice] = "#{@cart_item.qty}"
           redirect to ("/")
         else
-          halt 401
+          @cart_item.errors.each do |e|
+            puts e
+          end
+          halt 500
         end
       end
 
@@ -39,6 +42,10 @@ module MarketSayangroup
         @upd_cart_item = CartItem.first(:id => id)
         @upd_cart_item.qty = qty
         @upd_cart_item.save
+      end
+
+      def delete_cart_item(id)
+        CartItem.first(id: id).destroy
       end
 
       def show_small_cart
@@ -67,5 +74,11 @@ module MarketSayangroup
     end
 
     helpers CartItemHelper
+  end
+
+  class Admin
+    def find_item(item_id)
+        @item = Item.first(id: item_id)
+    end
   end
 end

@@ -1,0 +1,8 @@
+ul class="nav nav-tabs"
+  li = link_to tag_icon(:list, pat(:list)), url(:orders, :index)
+  li = link_to tag_icon(:plus, pat(:new)), url(:orders, :new)
+  li class="active" = link_to tag_icon(:edit, pat(:edit)), url(:orders, :edit, :id => @order.id)
+
+div class="tabs-content"
+  = form_for :order, url(:orders, :update, :id => @order.id), :method => :put, :class => 'form-horizontal' do |f|
+    = partial 'orders/form', :locals => { :f => f }

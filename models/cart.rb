@@ -4,15 +4,16 @@ class Cart
   property :id, Serial
   property :guest, Boolean
 
-  has n, :cart_items, constraint: :destroy
+  has n, :cart_items
   has n, :items, :through => :cart_items
 
+
   def add_item(item_id)
-    current_item = cart_items.first(item_id: item_id)
+    current_item = cart_items.first(item_id: item_id.to_i)
     if current_item
       current_item.qty += 1
     else
-      current_item = cart_items.new(item_id: item_id)
+      current_item = cart_items.new(item_id: item_id.to_i)
     end
     current_item
   end

@@ -12,7 +12,7 @@ module MarketSayangroup
       end
 
       def get_item_and_image
-        @this_item = Item.first(params[:id])
+        @this_item = Item.first(id: params[:id])
         @this_image = Upload.first(:item_id => params[:id])
       end
 

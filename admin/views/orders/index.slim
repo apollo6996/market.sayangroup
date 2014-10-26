@@ -1,0 +1,59 @@
+ul class="nav nav-tabs"
+  li class="active" = link_to tag_icon(:list, pat(:list)), url(:orders, :index)
+  li = link_to tag_icon(:plus, pat(:new)), url(:orders, :new)
+
+div class="tabs-content"
+  table class="table table-striped table-hover table-condensed" id="list"
+    thead
+      tr
+        th class='header list-menu'
+          div class='dropdown'
+            a href='#' class='list-menu-toggle.dropdown-toggle dropdown-toggle' data-toggle='dropdown'
+              = tag_icon :magic
+              span class='caret'
+            ul class='list-menu dropdown-menu' role='dropdown'
+              li class='list-menu-wrapper' = link_to tag_icon('check-square-o', pat(:select_all)), '#', :id => 'select-all', :class => 'list-menu-link'
+              li class='list-menu-wrapper list-menu-wrapper-disabled' = link_to tag_icon('square-o', pat(:deselect_all)), '#', :id => 'deselect-all', :class => 'list-menu-link list-menu-link-disabled'
+              li class='list-menu-divider divider'
+              li class='list-menu-wrapper list-menu-wrapper-disabled'
+                = link_to tag_icon('trash-o', pat(:delete_selected)), '#', :id => 'delete-selected', :class => 'list-menu-link list-menu-link-disabled'
+                div class='list-menu-popover-delete-selected popover right'
+                  div class='arrow'
+                  h3 class='popover-title' = pat(:delete_selected_title)
+                  div class='popover-content'
+                    = form_tag url(:orders, :destroy_many), :method => :delete do
+                      = hidden_field_tag :order_ids, :'data-delete-many-ids' => true
+                      = submit_tag  pat(:delete), :class =>'list-menu-popover-delete-selected-btn btn btn-danger btn-small'
+                      div class='btn btn-default btn-small cancel' = pat(:cancel)
+        th class='header' = mat(:order, "Номер заказа")
+        th class='header' = mat(:order, "Имя клиента")
+        th class='header' = mat(:order, "Контактый телефон")
+        th class='header' = mat(:order, "E-Mail")
+        th class='header' = mat(:order, "Адрес Доставки")
+        th class='header' = mat(:order, "Сумма")
+        th class='header' = mat(:order, "Дата")
+        th class='header list-row-action-header'
+
+    tbody
+      -@orders.reverse.each do |order|
+        tr class='list-row'
+          td class='list-column list-selectable' = check_box_tag 'order_ids[]', :value => order.id, :class => 'list-selectable-checkbox'
+          td class='list-column' 
+            = link_to "Заказ № #{order.id}", :href =>url(:orders, :edit, :id => order.id)
+          td class='list-column' = order.name
+          td class='list-column' = order.phone 
+          td class='list-column' = order.email
+          td class='list-column' = order.address
+          td class='list-column' = order.sum
+          td class='list-column' = order.created_at
+          td class='list-column list-row-action'
+            div class='list-row-action-wrapper'
+              = link_to tag_icon(:edit), :href => url(:orders, :edit, :id => order.id), :rel => :tooltip, :title => "#{pat(:edit)} order", :class => 'list-row-action-wrapper-link'
+              = link_to tag_icon('trash-o'), :rel => :tooltip, :title => "#{pat(:delete)} order", :class => 'list-row-action-delete-one list-row-action-wrapper-link'
+              div class='popover list-row-action-popover-delete-one left'
+                div class='arrow'
+                h3 class='popover-title' = pat(:delete, :model => "order")
+                div class='popover-content'
+                  = form_tag url(:orders, :destroy, :id => order.id), :method => :delete do
+                    = submit_tag pat(:delete), :class =>'list-row-action-popover-delete-one-btn btn btn-danger btn-small'
+                    div class='btn btn-default btn-small cancel' = pat(:cancel)

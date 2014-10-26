@@ -1,4 +1,15 @@
 // Put your application scripts here
+  function deleteCartItem(item_id) {
+    var url = '/cart_item/cart_items/' + item_id;
+    $.ajax(url, {
+      type: "DELETE",
+      success : function () {
+        $('#cart_item_' + item_id).fadeOut("fast");
+      }
+    })
+  }
+
+
 $(document).ready(function() {
 
 
@@ -28,8 +39,9 @@ $(document).ready(function() {
       })
   // End of AJAX request
     }
-
   );
+
+
 
 
 });

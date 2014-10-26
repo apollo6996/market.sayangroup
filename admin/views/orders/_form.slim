@@ -1,0 +1,40 @@
+h3 Заказ № #{@order.id}
+- get_order(@order.id)
+
+.row 
+  .col-md-12
+    table.table.table-hover
+        thead
+          tr
+            th Название
+            th Количество
+            th Цена за шт.
+            th Итого
+        tbody
+        - @this_order.cart_items.each do |item|
+          -find_item(item.item_id)
+          tr 
+            td #{@item.name}
+            td #{item.qty}
+            td #{item.price}
+            td #{item.qty * item.price}
+
+
+- error = @order.errors.key?(:sum) && @order.errors[:sum].count > 0
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label "Сумма", :class => 'control-label' 
+    == "#{@sum} руб."
+  
+- error = @order.errors.key?(:address) && @order.errors[:address].count > 0
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label 'Адрес Доставки', :class => 'control-label'
+  div class='controls'
+    = f.text_area :address, :class => 'form-control input-large input-with-feedback'
+<br>    
+
+div class="form-actions"
+  //= f.submit pat(:save), :class => 'btn btn-primary'
+  |&nbsp;
+  = f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue'
+  |&nbsp;
+  = link_to pat(:cancel), url(:orders, :index), :class => 'btn btn-default'

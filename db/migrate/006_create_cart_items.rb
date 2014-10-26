@@ -6,7 +6,6 @@ migration 6, :create_cart_items do
       column :qty, DataMapper::Property::Integer
       column :variant, DataMapper::Property::String, :length => 255
       column :price, DataMapper::Property::Integer
-      column :amount, DataMapper::Property::Integer
       column :created_at, DataMapper::Property::DateTime
     end
   end

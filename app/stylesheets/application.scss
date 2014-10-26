@@ -20,8 +20,16 @@
 
 }
 
+.discript {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-height: 77px;
+  min-height: 77px; 
+}
+
 .total_price {
   margin-left: -9px;
+
 }
 
 .to_cart {

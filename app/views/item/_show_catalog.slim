@@ -1,4 +1,4 @@
-h2 Тестовые товары  
+h2 
 
 -@items.each do |item|
   -if item != nil
@@ -6,6 +6,7 @@ h2 Тестовые товары
       - get_catalog_image(item.id)
       = image_tag ("#{@imageface.file.url}")
       h2== "<a href='/item/get_item/#{item.id}'>#{item.name}</a>" 
+      p.discript== "#{item.descipt}"
       hr
       h3== "Цена: <span class='price'> #{item.price} </span> руб."
       = form_tag '/cart_item/cart_items', :method => 'POST' do

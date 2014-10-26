@@ -16,7 +16,7 @@ class User
   property :address,        String
 
   # Company User
-  property :company_name,   String
+  property :company_name,   String,  :unique => true
   property :inn,            Integer, :unique => true 
   property :kpp,            Integer
   property :bank_account,   Integer
