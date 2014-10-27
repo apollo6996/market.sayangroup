@@ -25,12 +25,17 @@ MarketSayangroup::App.controllers :order do
     end
   end
 
+  delete :delete_cart, :with => :cart_id do
+
+  end
+
   post :create do
     @cart = Cart.get(session[:cart_id])
     @order = Order.new(params[:order])
     @order.add_cart_items_from_cart(@cart, @order.id)
     if @order.save
-      #Cart.first(id: session[:cart_id]).destroy
+      Cart.first(id: session[:cart_id]).destroy!
+      #redirect to ('/order/delete_cart/#{:cart_id}')
       session[:cart_id] = nil
       redirect to ("/")
     else

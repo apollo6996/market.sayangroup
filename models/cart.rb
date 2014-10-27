@@ -4,7 +4,7 @@ class Cart
   property :id, Serial
   property :guest, Boolean
 
-  has n, :cart_items
+  has n, :cart_items, :constraint => :set_nil
   has n, :items, :through => :cart_items
 
 

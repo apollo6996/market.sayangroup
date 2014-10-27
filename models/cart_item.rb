@@ -6,7 +6,7 @@ class CartItem
   property :qty,          Integer, :default => 1
   property :variant,      String
   property :price,        Integer
-  property :cart_id,     Integer, :allow_nil => true, :allow_blank => true
+  property :cart_id,      Integer, :allow_nil => true, :allow_blank => true
   property :order_id,     Integer, :allow_nil => true, :allow_blank => true
   property :created_at,   DateTime
 
