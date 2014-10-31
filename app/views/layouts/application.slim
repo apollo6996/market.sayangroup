@@ -15,7 +15,7 @@ html lang='en'
   .container-fluid.bg-back-color
     .container.bg-color
       header
-        .row.toprow
+        .row
           .col-md-4
             = image_tag 'logo.png', :class => 'brandlogo'
           .col-md-5.bgtop
@@ -26,6 +26,10 @@ html lang='en'
               br
               i.fa.fa-envelope &nbsp
               a href="#" контакты
+        .row
+          .col-md-12
+            .toprow_small
+            .toprow
         .row
           .col-md-12
             ul.nav.nav-pills
@@ -83,8 +87,24 @@ html lang='en'
                   a href="#" контакты
           .col-md-3
             = image_tag ('http://sayangroup.ru/wp-content/themes/sayan/images/logos/footer_logo.png'), :class => 'footer_logo'
+    #addingToCart.modal.fade tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"
+      .modal-dialog.modal-sm
+        .modal-content
+          .modal-header
+            button type="button" class="close" data-dismiss="modal"
+              span aria-hidden="true" &times;
+              span class="sr-only" Закрыть
+            h5.modal-title Добавление товара
+          .modal-body
+            h4 Товар добавлен в корзину!
 
-    = javascript_include_tag 'jquery.min', 'talos_submenu.min', 'custom', 'application'          
+          .modal-footer
+            a href="/" 
+              button.but_modal type="button" class="btn btn-default btn-sm" Продолжить покупки
+            a href="/cart_item/cart/" 
+              button type="button" class="btn btn-success btn-sm"  Оформить Заказ
+
+    = javascript_include_tag 'jquery.min', 'bootstrap', 'talos_submenu.min', 'custom', 'application'          
 
 
 

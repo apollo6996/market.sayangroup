@@ -1,3 +1,4 @@
+= csrf_meta_tags
 .row
   .col-md-7
     h2 Карточка Товара
@@ -25,11 +26,14 @@
     h3== "Цена: <span class='price'> #{@this_item.price} </span> руб."
     == '<br>'
 
-    = form_tag '/cart_item/cart_items', :method => 'POST' do
-        = hidden_field_tag :item_id, :value => @this_item.id
-        //| Введите количество: &nbsp
-        //= number_field_tag :qty, :value => 1, :min => 1, :max => 100
-        = submit_tag :class => 'to_cart', :value => 'Добавить в Корзину!'
+    //= form_tag '/cart_item/cart_items' do
+        //= hidden_field_tag :item_id, :class => 'addingToCart_form', :value => @this_item.id
+    .form.addingToCart_form
+      = hidden_field_tag :authenticity_token, :value => session[:csrf], :class => :authenticity_token
+      = hidden_field_tag :item_id, :class => 'addingToCart_form', :value => @this_item.id
+        
+      input.to_cart type="submit" onclick="addingToCart()" value="Добавить в Корзину!"
+        //= submit_tag :class => 'to_cart', :data-toggle="modal" :data-target="#myModal", :value => 'Добавить в Корзину!'
 
     //h4 Остались вопросы?
     = submit_tag :class => 'to_cart', :value => 'Обратный Звонок'

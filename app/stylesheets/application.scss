@@ -32,6 +32,10 @@
 
 }
 
+.but_modal {
+  margin-right: 3.5%;
+}
+
 .to_cart {
     background-color: transparent;
     @include box-sizing(content-box);
@@ -106,6 +110,7 @@ ul.spec > li {
 }
 
 .topright {
+  margin-top: 12%;
   display: inline-block;
   float: left;
   line-height: 2;
@@ -114,8 +119,29 @@ ul.spec > li {
   }
 }
 
+.wraper_for_toprow {
+  width: 100%
+}
 .toprow {
-  border-bottom: 2px solid #1389bb!important;
+  display: inline-block;
+  background-color: #ccc;
+  min-height: 2px;
+  min-width: 99.6%;
+  float: left;
+}
+
+.toprow_small {
+  //@include clearfix;
+  @include background-image(linear-gradient(to right, white, #ccc));
+  //background-color: #ccc; 
+  display: inline-block;
+  float: left;
+  min-height: 2px;
+  min-width: 0.7%;
+  max-width: 0.7%;
+  margin-left: -4px;
+  //border-bottom: 5px solid #ccc;
+  //#1389bb!important;
 }
 
 .bg-back-color {
@@ -214,42 +240,42 @@ ul.nav.nav-pills {
 
 .menu_blue {
     background-image: url(../images/forSprite.png);
-    background-position: 50% 338px;
+    background-position: 50% 380px;
     background-size: cover;
     a {
       margin-left: 40px;
     }
     &:hover {
       background-image: url(../images/forSprite.png);
-      background-position: 50% 179px;
+      background-position: 50% 216px;
       background-size: cover;
     }
 }
 
 .menu_green {
     background-image: url(../images/forSprite.png);
-    background-position: 50% 285px;
+    background-position: 50% 325px;
     background-size: cover;
     a {
       margin-left: 63px;
     }
     &:hover {
       background-image: url(../images/forSprite.png);
-      background-position: 50% 125px;
+      background-position: 50% 162px;
       background-size: cover;
     }
 }
 
 .menu_red {
     background-image: url(../images/forSprite.png);
-      background-position: 50% 232px;
+      background-position: 50% 271px;
       background-size: cover;
     a {
       margin-left: -10px;
     }
     &:hover {
       background-image: url(../images/forSprite.png);
-      background-position: 50% 71px;
+      background-position: 50% 107px;
       background-size: cover;
     }
 }
@@ -262,13 +288,13 @@ ul {
     position: relative;
     cursor: pointer;
     overflow: hidden;
-    min-width: 320px;
+    min-width: 321px;
     width: 321px;
     height: 52px;
     margin-left: -10px;
     font-size: 18px;
     a {
-      width: 320px;
+      width: 321px;
       height: 52px;
       color: #555;
       &:hover {

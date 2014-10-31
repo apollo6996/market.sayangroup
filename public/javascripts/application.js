@@ -10,8 +10,29 @@
   }
 
 
-$(document).ready(function() {
+  function addingToCart () {
+  //prevent(form);
+  var AUTH_TOKEN = $('.authenticity_token').val()
+  var url = '/cart_item/cart_items' + "?&authenticity_token=" + AUTH_TOKEN
+  var formData = $('.addingToCart_form').serialize();
+    $.ajax(url, {
+      type :    "POST",
+      data :    formData,
+      success : function () {
+        $('#addingToCart').modal(); 
+      }
+    })
+// End of AJAX request
+  };
 
+//$('.to_cart').click(function(event) {
+//    $('#addingToCart').modal('')
+//  });
+  
+
+$(document).ready(function() {
+  
+  $('.tooltip_button').tooltip();
 
   $( '.qty_cart' ).change(
     function () {

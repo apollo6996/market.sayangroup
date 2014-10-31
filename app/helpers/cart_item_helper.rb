@@ -29,7 +29,7 @@ module MarketSayangroup
             @cart_item_to_up = @cart_item.update(:price => item_full.price)
           end
           flash[:notice] = "#{@cart_item.qty}"
-          redirect to ("/")
+          #redirect to ("/")
         else
           @cart_item.errors.each do |e|
             puts e

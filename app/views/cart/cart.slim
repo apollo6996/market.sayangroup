@@ -34,7 +34,7 @@
             td id="total_#{item.id}" #{@item_total} руб.
             = hidden_field_tag :item_total, :id => "item_total_#{item.id}", :class => "item_total", :value => @item_total
             td 
-              <button type="button" class="btn btn-danger btn-xs" onclick="deleteCartItem(#{item.id})" ><i class="fa fa-times"></i></button>
+              <button type="button" class="btn btn-danger btn-xs tooltip_button" data-toggle="tooltip" data-placement="top" title="Удалить из корзины" onclick="deleteCartItem(#{item.id})" ><i class="fa fa-times"></i></button>
     //hr
     .row
       .col-md-8

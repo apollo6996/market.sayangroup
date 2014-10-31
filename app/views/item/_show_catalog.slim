@@ -9,7 +9,13 @@ h2
       p.discript== "#{item.descipt}"
       hr
       h3== "Цена: <span class='price'> #{item.price} </span> руб."
-      = form_tag '/cart_item/cart_items', :method => 'POST' do
-        = hidden_field_tag :item_id, :value => item.id
+      .form.addingToCart_form
+      = hidden_field_tag :authenticity_token, :value => session[:csrf], :class => :authenticity_token
+      = hidden_field_tag :item_id, :class => 'addingToCart_form', :value => item.id
+        
+      input.to_cart type="submit" onclick="addingToCart()" value="Добавить в Корзину!"
+
+      //= form_tag '/cart_item/cart_items', :method => 'POST' do
+        //= hidden_field_tag :item_id, :value => item.id
         //= number_field_tag :qty, :value => 1, :min => 1, :max => 100
-        = submit_tag :class => 'to_cart', :value => 'Добавить в Корзину!'
+        //= submit_tag :class => 'to_cart', :value => 'Добавить в Корзину!'
