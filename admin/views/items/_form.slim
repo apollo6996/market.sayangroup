@@ -7,12 +7,12 @@
         = f.text_field :name, :class => 'form-control input-sm input-with-feedback', :autofocus => true
         span class='help-inline' = error ? f.error_message_on(:name, :class => 'text-error') : ''
      
-    - error = @item.errors.key?(:category_id) && @item.errors[:category_id].count > 0
+    - error = @item.errors.key?(:group_id) && @item.errors[:group_id].count > 0
     fieldset class='control-group#{error ? ' has-error' : ''}'
-      = f.label 'Категория Товара', :class => 'control-label'
+      = f.label 'Группа Товара', :class => 'control-label'
       div#for_category.controls
-        = f.select(:category_id, :class => 'form-control input-sm input-with-feedback', :collection => @allcats, :fields => [:name, :id]) 
-        span class='help-inline' = error ? f.error_message_on(:category_id, :class => 'text-error') : ''
+        = f.select(:group_id, :class => 'form-control input-sm input-with-feedback', :collection => @allgroups, :fields => [:name, :id]) 
+        span class='help-inline' = error ? f.error_message_on(:group_id, :class => 'text-error') : ''
     
     - error = @item.errors.key?(:descipt) && @item.errors[:descipt].count > 0
     fieldset class='control-group#{error ? ' has-error' : ''}'

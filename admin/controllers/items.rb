@@ -6,6 +6,10 @@ MarketSayangroup::Admin.controllers :items do
       @allcats = Category.all
     end
 
+    def show_groups
+      @allgroups = Group.all
+    end
+
     def related_attrs
       @attrs = {
         1 => ["material", "adjrange", "power"],
@@ -31,6 +35,7 @@ MarketSayangroup::Admin.controllers :items do
   end
 
   before do
+    show_groups
     show_cats
     related_attrs
   end

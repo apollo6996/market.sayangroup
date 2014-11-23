@@ -1,6 +1,6 @@
 ul class="nav nav-tabs"
-  li class="active" = link_to tag_icon(:list, pat(:list)), url(:items, :index)
-  li = link_to tag_icon(:plus, pat(:new)), url(:items, :new)
+  li class="active" = link_to tag_icon(:list, pat(:list)), url(:groups, :index)
+  li = link_to tag_icon(:plus, pat(:new)), url(:groups, :new)
 
 div class="tabs-content"
   table class="table table-striped table-hover table-condensed" id="list"
@@ -21,36 +21,28 @@ div class="tabs-content"
                   div class='arrow'
                   h3 class='popover-title' = pat(:delete_selected_title)
                   div class='popover-content'
-                    = form_tag url(:items, :destroy_many), :method => :delete do
-                      = hidden_field_tag :item_ids, :'data-delete-many-ids' => true
+                    = form_tag url(:groups, :destroy_many), :method => :delete do
+                      = hidden_field_tag :group_ids, :'data-delete-many-ids' => true
                       = submit_tag  pat(:delete), :class =>'list-menu-popover-delete-selected-btn btn btn-danger btn-small'
                       div class='btn btn-default btn-small cancel' = pat(:cancel)
-        th class='header' = mat(:item, :id)
-        th class='header' = mat(:item, :name)
-        th class='header' = mat(:item, :descipt)
-        th class='header' = mat(:item, :price)
-        th class='header' = 'Категория'       
-        th class='header' = mat(:item, :virtual_item)
+        th class='header' = mat(:group, :id)
+        th class='header' = mat(:group, :name)
         th class='header list-row-action-header'
 
     tbody
-      -@items.each do |item|
+      -@groups.each do |group|
         tr class='list-row'
-          td class='list-column list-selectable' = check_box_tag 'item_ids[]', :value => item.id, :class => 'list-selectable-checkbox'
-          td class='list-column' = item.id
-          td class='list-column' = item.name
-          td class='list-column' = item.descipt
-          td class='list-column' = "#{item.price} руб."
-          td class='list-column' = item.group.name
-          td class='list-column' = item.virtual_item ? tag_icon('check') : tag_icon('times')
+          td class='list-column list-selectable' = check_box_tag 'group_ids[]', :value => group.id, :class => 'list-selectable-checkbox'
+          td class='list-column' = group.id
+          td class='list-column' = group.name
           td class='list-column list-row-action'
             div class='list-row-action-wrapper'
-              = link_to tag_icon(:edit), :href => url(:items, :edit, :id => item.id), :rel => :tooltip, :title => "#{pat(:edit)} item", :class => 'list-row-action-wrapper-link'
-              = link_to tag_icon('trash-o'), :rel => :tooltip, :title => "#{pat(:delete)} item", :class => 'list-row-action-delete-one list-row-action-wrapper-link'
+              = link_to tag_icon(:edit), :href => url(:groups, :edit, :id => group.id), :rel => :tooltip, :title => "#{pat(:edit)} group", :class => 'list-row-action-wrapper-link'
+              = link_to tag_icon('trash-o'), :rel => :tooltip, :title => "#{pat(:delete)} group", :class => 'list-row-action-delete-one list-row-action-wrapper-link'
               div class='popover list-row-action-popover-delete-one left'
                 div class='arrow'
-                h3 class='popover-title' = pat(:delete, :model => "item")
+                h3 class='popover-title' = pat(:delete, :model => "group")
                 div class='popover-content'
-                  = form_tag url(:items, :destroy, :id => item.id), :method => :delete do
+                  = form_tag url(:groups, :destroy, :id => group.id), :method => :delete do
                     = submit_tag pat(:delete), :class =>'list-row-action-popover-delete-one-btn btn btn-danger btn-small'
                     div class='btn btn-default btn-small cancel' = pat(:cancel)

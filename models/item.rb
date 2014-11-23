@@ -15,7 +15,11 @@ class Item
   property :weigth,         Text
   property :gabarits,       Text
 
-  belongs_to :category
+  belongs_to :group
+
+  has n, :groups
+  has n, :features, :through => :groups
+
   has n, :uploads, constraint: :destroy, :through => Resource
   has n, :cart_items
   has n, :carts, :through => :cart_items

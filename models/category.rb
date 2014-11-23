@@ -6,5 +6,5 @@ class Category
   property :name,         String
   property :virtual_item, Boolean
   
-  has n, :items
+  has n, :groups
 end

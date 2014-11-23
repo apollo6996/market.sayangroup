@@ -37,6 +37,8 @@ module MarketSayangroup
     end
 
     access_control.roles_for :admin do |role|
+      role.project_module :features, '/features'
+      role.project_module :groups, '/groups'
       role.project_module 'Товары', '/items'
       role.project_module 'Категории', '/categories'
       role.project_module 'Заказы', '/orders'
