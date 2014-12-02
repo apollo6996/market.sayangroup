@@ -16,24 +16,24 @@
     //$("#result").text(formData);
   }
 
-$('select[name="item[category_id]"]').change(function(){
+$('select[name="item[group_id]"]').change(function(){
   var el      =  $(this).val();
-  var arr     =  $('select[name="item[category_id]"]').children()
+  var arr     =  $('select[name="item[group_id]"]').children()
   var hidden  =  $.each(arr, function(index, value){$(this).val()})
 
-  $('#Category' + el).show("fast");
+  $('#Group' + el).show("fast");
 
   $.each(hidden, function (index, value){
     i = index + 1
     if (i != el) {
-      $('#Category' + i).css('display','none')
+      $('#Group' + i).css('display','none')
     };
   })
     
 });
 
 /*
-$( "#item_category_id" ).on( "change", showSelected(this));
+$( "#item_group_id" ).on( "change", showSelected(this));
 */
 !function($) {
   'use strict';

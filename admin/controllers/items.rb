@@ -19,8 +19,10 @@ MarketSayangroup::Admin.controllers :items do
       }
     end
 
-    def show_attrs
-      @getattrs = @attrs[@attrs_hash]
+    def create_attr
+      adapter.execute("INSERT INTO features (name) VALUES ('params[:feature]')")
+      #@attr = Feature.new(:item_id => @item.id, :group_id => @item.group_id, :name => params[:feature].to_a)
+      #@attr.save
     end
 
     def upload_image
@@ -56,6 +58,7 @@ MarketSayangroup::Admin.controllers :items do
     @item = Item.new(params[:item])
     if @item.save
       upload_image
+      create_attr
       @title = pat(:create_title, :model => "item #{@item.id}")
       flash[:success] = pat(:create_success, :model => 'Item')
       params[:save_and_continue] ? redirect(url(:items, :index)) : redirect(url(:items, :edit, :id => @item.id))
