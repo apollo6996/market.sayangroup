@@ -1,4 +1,7 @@
+ 
+
 ul class="nav nav-tabs"
+  li == "#{@attr}"
   li class="active" = link_to tag_icon(:list, pat(:list)), url(:items, :index)
   li = link_to tag_icon(:plus, pat(:new)), url(:items, :new)
 

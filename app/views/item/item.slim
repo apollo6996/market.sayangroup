@@ -16,9 +16,10 @@
   .col-md-4
     h3 Спецификация
     ul.spec 
-      li Материал: #{@this_item.material}
-      li Диапазон высот (мм.): #{@this_item.adjrange}
-      li Несущая мощность: #{@this_item.power}
+      -@this_item.group.features.each do | f |
+        -@feature_name = f.name
+        -@feature_value = find_attr(f.id.to_s)
+        li #{@feature_name} : #{@feature_value}
     hr.orange
     h3 Описание
     p #{@this_item.descipt}

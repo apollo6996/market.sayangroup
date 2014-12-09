@@ -52,7 +52,10 @@
             fieldset class='control-group#{error ? ' has-error' : ''}'
                     = f.label spec.name, :class => 'control-label'
                     div class='controls'
-                      = f.text_field "#{spec.id}", :class => 'form-control input-sm input-with-feedback', :name => 'feature'
+                      -if @features
+                        = f.text_field "feature[#{spec.id}]", :class => 'form-control input-sm input-with-feedback', :name => "feature[#{spec.id}]", :value => "#{@features[spec.id.to_s]}"
+                      -else
+                        = f.text_field "feature[#{spec.id}]", :class => 'form-control input-sm input-with-feedback', :name => "feature[#{spec.id}]"
                       span class='help-inline' = error ? f.error_message_on(spec, :class => 'text-error') : ''
           == "</div>"
         - else
@@ -61,7 +64,10 @@
             fieldset class='control-group#{error ? ' has-error' : ''}'
                     = f.label spec.name, :class => 'control-label'
                     div class='controls'
-                      = f.text_field "#{spec.id}", :class => 'form-control input-sm input-with-feedback', :name => 'feature' 
+                      -if @features
+                        = f.text_field "feature[#{spec.id}]", :class => 'form-control input-sm input-with-feedback', :name => "feature[#{spec.id}]", :value => "#{@features[spec.id.to_s]}"
+                      -else
+                        = f.text_field "feature[#{spec.id}]", :class => 'form-control input-sm input-with-feedback', :name => "feature[#{spec.id}]"
                       span class='help-inline' = error ? f.error_message_on(spec, :class => 'text-error') : ''
           == "</div>"
 

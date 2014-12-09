@@ -16,6 +16,10 @@ module MarketSayangroup
         @this_image = Upload.first(:item_id => params[:id])
       end
 
+        def find_attr(feature_id)
+          @this_item.attrs[feature_id]
+        end
+
       #def get_category
       #  @category = 
       #end

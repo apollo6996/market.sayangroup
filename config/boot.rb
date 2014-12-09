@@ -6,6 +6,8 @@ PADRINO_ROOT = File.expand_path('../..', __FILE__) unless defined?(PADRINO_ROOT)
 require 'rubygems' unless defined?(Gem)
 require 'bundler/setup'
 require 'active_support/concern'
+require 'translit'
+require 'json'
 Bundler.require(:default, RACK_ENV)
 
 ##

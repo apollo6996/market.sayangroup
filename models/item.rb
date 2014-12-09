@@ -8,12 +8,7 @@ class Item
   property :price,          Integer
   property :virtual_item,   Boolean
 
-  property :material,       Text
-  property :adjrange,       Text
-  property :power,          Text
-  property :color,          Text
-  property :weigth,         Text
-  property :gabarits,       Text
+  property :attrs,       Json
 
   belongs_to :group
 

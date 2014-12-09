@@ -24,6 +24,7 @@ end
 
 get :get_item, :with => :id do
   get_item_and_image
+  #find_attr
   render 'item/item'
 end
 

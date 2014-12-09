@@ -1,4 +1,5 @@
 MarketSayangroup::Admin.controllers :items do
+
   
   helpers do
 
@@ -20,9 +21,14 @@ MarketSayangroup::Admin.controllers :items do
     end
 
     def create_attr
-      adapter.execute("INSERT INTO features (name) VALUES ('params[:feature]')")
-      #@attr = Feature.new(:item_id => @item.id, :group_id => @item.group_id, :name => params[:feature].to_a)
-      #@attr.save
+      arr = params[:feature].to_json
+      arr = JSON.parse(arr, symbolize_names: true)
+      @attr = @item.attributes = {:attrs => arr}
+      @item.save
+    end
+
+    def get_attr
+      @features = @item.attrs
     end
 
     def upload_image
@@ -80,8 +86,10 @@ MarketSayangroup::Admin.controllers :items do
 
   get :edit, :with => :id do
     get_image
+
     @title = pat(:edit_title, :model => "item #{params[:id]}")
     @item = Item.get(params[:id])
+    get_attr
     if @item
       render 'items/edit'
     else
@@ -96,6 +104,7 @@ MarketSayangroup::Admin.controllers :items do
     @item = Item.get(params[:id])
     if @item
       upload_image
+      create_attr
       if @item.update(params[:item])
         flash[:success] = pat(:update_success, :model => 'Item', :id =>  "#{params[:id]}")
         params[:save_and_continue] ?
