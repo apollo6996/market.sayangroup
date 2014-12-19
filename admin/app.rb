@@ -37,12 +37,12 @@ module MarketSayangroup
     end
 
     access_control.roles_for :admin do |role|
-      role.project_module :features, '/features'
-      role.project_module :groups, '/groups'
-      role.project_module 'Товары', '/items'
       role.project_module 'Категории', '/categories'
+      role.project_module 'Группы', '/groups'
+      role.project_module 'Характеристики', '/features'
+      role.project_module 'Товары', '/items'
       role.project_module 'Заказы', '/orders'
-      role.project_module :accounts, '/accounts'
+      role.project_module 'Аккаунты', '/accounts'
     end
 
     # Custom error management 
