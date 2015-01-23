@@ -1,8 +1,8 @@
 = csrf_meta_tags
 .row
-  .col-md-7
+  .col-md-8
     h2 Карточка Товара
-  .col-md-5
+  .col-md-4
     = partial 'small_cart'
 
 .row
@@ -12,7 +12,15 @@
 .row
   .col-md-4
     .spec
-      = image_tag ("#{@this_image.file.url}")
+      <a href="#{@this_image.file.big.url}" class="bblb" data-bblb-group="gallery">
+        = image_tag ("#{@this_image.file.medium.url}")
+      </a>
+      /= image_tag ("#{@this_image.file.url}"), :class => 'bblb'
+      br
+      - @all_images.each do |i|
+        <a href="#{i.file.big.url}" class="bblb" data-bblb-group="gallery">
+          = image_tag ("#{i.file.thumb.url}")
+        </a>
   .col-md-4
     h3 Спецификация
     ul.spec 
@@ -32,9 +40,10 @@
     .form.addingToCart_form
       = hidden_field_tag :authenticity_token, :value => session[:csrf], :class => :authenticity_token
       = hidden_field_tag :item_id, :class => 'addingToCart_form', :value => @this_item.id
+      = number_field_tag :qty, :value => 1, :min => 1, :max => 100
         
       input.to_cart type="submit" onclick="addingToCart()" value="Добавить в Корзину!"
         //= submit_tag :class => 'to_cart', :data-toggle="modal" :data-target="#myModal", :value => 'Добавить в Корзину!'
 
     //h4 Остались вопросы?
-    = submit_tag :class => 'to_cart', :value => 'Обратный Звонок'
+    //= submit_tag :class => 'to_cart', :value => 'Обратный Звонок'

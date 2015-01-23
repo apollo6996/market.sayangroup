@@ -4,8 +4,8 @@ h2
   -if item != nil
     .item
       - get_catalog_image(item.id)
-      = image_tag ("#{@imageface.file.url}")
-      h2== "<a href='/item/get_item/#{item.id}'>#{item.name}</a>" 
+      = image_tag ("#{@imageface.file.medium.url}")
+      h3== "<a href='/item/get_item/#{item.id}'>#{item.name}</a>" 
       p.discript== "#{item.descipt}"
       hr
       h3== "Цена: <span class='price'> #{item.price} </span> руб."

@@ -38,8 +38,8 @@ MarketSayangroup::Admin.controllers :items do
     end
 
     def get_image
-        @image = Upload.all(:item_id => params[:id])
-      end
+      @image = Upload.all(:item_id => params[:id])
+    end
   end
 
   before do

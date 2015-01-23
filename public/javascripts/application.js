@@ -31,6 +31,8 @@
   
 
 $(document).ready(function() {
+
+  $('.bblb').bbLightbox();
   
   $('.tooltip_button').tooltip();
 

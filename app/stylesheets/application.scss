@@ -86,15 +86,19 @@ ul.spec > li {
 .item {
   display: inline-block;
   float: left;
-  width: 280px;
+  width: 205px;
   margin-bottom: 50px;
 
   &:nth-child(3n + 3) {
-    margin-left: 50px;
+    margin-left: 40px;
   }
 
   &:nth-child(3n + 4) {
-    margin-left: 49px;
+    margin-left: 40px;
+  }
+
+  &:nth-child(3n + 5) {
+    margin-left: 40px;
   }
 
   & hr {
@@ -411,10 +415,12 @@ ul {
 }
 
 .cart_float {
+  margin-left: -57px;
   display: block;
   float: left;
 }
 .pad_bot {
+  padding-left: 28px;
   padding-top: 5px;
   font-size: 17px;
 }

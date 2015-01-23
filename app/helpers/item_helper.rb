@@ -14,6 +14,8 @@ module MarketSayangroup
       def get_item_and_image
         @this_item = Item.first(id: params[:id])
         @this_image = Upload.first(:item_id => params[:id])
+        @all_images = Upload.all(:item_id => params[:id]) - Upload.first(:item_id => params[:id])
+
       end
 
         def find_attr(feature_id)

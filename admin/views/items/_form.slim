@@ -96,9 +96,9 @@
     //  = image_tag ("#{@image.file.url}")          
     -if @image
       - @image.each do | image |
-        = image_tag ("#{image.file.url}")
+        = image_tag ("#{image.file.medium.url}")
         = f.hidden_field :id, :class => 'hidden', :formaction => '/image/destroy/'"#{image.id}"
-        = button_tag "Удалить", :class => 'btn btn-primary'
+        = link_to "Удалить",'/image/destroy/'"#{image.id}"'/'"#{image.item_id}", :class => 'btn btn-primary', :method => :delete
 .row
   .col-md-5.col-md-offset-3
     div class="form-actions"
