@@ -8,17 +8,32 @@ class Cart
   has n, :items, :through => :cart_items
 
 
-  def add_item(item_id)
+  def add_item(item_id, qty)
     current_item = cart_items.first(item_id: item_id.to_i)
-    if current_item
+
+    if current_item && qty
+      current_item.qty += qty.to_i
+    elsif current_item
       current_item.qty += 1
     else
-      current_item = cart_items.new(item_id: item_id.to_i)
+      if qty
+        current_item = cart_items.new(item_id: item_id.to_i)
+        current_item.qty += qty.to_i - 1
+      else
+        current_item = cart_items.new(item_id: item_id.to_i)  
+      end
     end
+
+    # if current_item
+    #  current_item.qty += 1
+    #else
+    #  current_item = cart_items.new(item_id: item_id.to_i)
+    #end
+
     current_item
   end
 
-  def update_item(id, qty)
+  def update_item(item_id, qty)
     current_item = cart_items.first(id: id)
     if current_item
       current_item.qty = qty

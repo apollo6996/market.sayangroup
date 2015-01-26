@@ -19,15 +19,15 @@ module MarketSayangroup
 
       def create
         item = Item.get(params[:item_id])
-        @cart_item = @cart.add_item(item.id)
+        @cart_item = @cart.add_item(params[:item_id], params[:qty])
 
         if @cart_item.save
           item_full = Item.first(:id => params[:item_id])
-          if params[:qty]
-            @cart_item_to_up = @cart_item.update(:price => item_full.price, :qty => params[:qty])
-          else
-            @cart_item_to_up = @cart_item.update(:price => item_full.price)
-          end
+          #if params[:qty]
+          #  @cart_item_to_up = @cart_item.update(:price => item_full.price, :qty => params[:qty])
+          #else
+          @cart_item_to_up = @cart_item.update(:price => item_full.price)
+          #end
           flash[:notice] = "#{@cart_item.qty}"
           #redirect to ("/")
         else

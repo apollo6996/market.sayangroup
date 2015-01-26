@@ -39,10 +39,10 @@
         //= hidden_field_tag :item_id, :class => 'addingToCart_form', :value => @this_item.id
     .form.addingToCart_form
       = hidden_field_tag :authenticity_token, :value => session[:csrf], :class => :authenticity_token
-      = hidden_field_tag :item_id, :class => 'addingToCart_form', :value => @this_item.id
-      = number_field_tag :qty, :value => 1, :min => 1, :max => 100
+      = hidden_field_tag :item_id, :class => 'addingToCart_form' + "#{@this_item.id}", :value => @this_item.id
+      = number_field_tag :qty, :class => 'addingToCart_form'+ "#{@this_item.id}", :value => 1, :min => 1, :max => 100
         
-      input.to_cart type="submit" onclick="addingToCart()" value="Добавить в Корзину!"
+      input.to_cart type="submit" onclick="addingToCart(#{@this_item.id})" value="Добавить в Корзину!"
         //= submit_tag :class => 'to_cart', :data-toggle="modal" :data-target="#myModal", :value => 'Добавить в Корзину!'
 
     //h4 Остались вопросы?

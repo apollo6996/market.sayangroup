@@ -10,11 +10,13 @@
   }
 
 
-  function addingToCart () {
+
+
+  function addingToCart (item_id) {
   //prevent(form);
   var AUTH_TOKEN = $('.authenticity_token').val()
   var url = '/cart_item/cart_items' + "?&authenticity_token=" + AUTH_TOKEN
-  var formData = $('.addingToCart_form').serialize();
+  var formData = $('.addingToCart_form' + item_id).serialize();
     $.ajax(url, {
       type :    "POST",
       data :    formData,
@@ -28,7 +30,21 @@
 //$('.to_cart').click(function(event) {
 //    $('#addingToCart').modal('')
 //  });
-  
+
+  function addingToCartFromCatalog () {
+  //prevent(form);
+  var AUTH_TOKEN = $('.authenticity_token').val()
+  var url = '/cart_item/cart_items' + "?&authenticity_token=" + AUTH_TOKEN
+  var formData = $(this).parent().find('.addingToCart_form').serialize();
+    $.ajax(url, {
+      type :    "POST",
+      data :    formData,
+      success : function () {
+        $('#addingToCart').modal(); 
+      }
+    })
+// End of AJAX request
+  };
 
 $(document).ready(function() {
 
