@@ -1,4 +1,4 @@
-@dir = "/home/ubuntu/market.sayangroup/"
+@dir = "/home/sayangroup/market.sayangroup/"
 
 worker_processes 3
 working_directory @dir
