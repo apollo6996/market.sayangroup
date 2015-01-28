@@ -89,17 +89,14 @@ ul.spec > li {
   width: 205px;
   margin-bottom: 50px;
 
-  &:nth-child(3n + 3) {
+  &:nth-child(4n) {
     margin-left: 40px;
   }
 
-  &:nth-child(3n + 4) {
+  &:nth-child(2n + 1) {
     margin-left: 40px;
   }
 
-  &:nth-child(3n + 5) {
-    margin-left: 40px;
-  }
 
   & hr {
     border-top: 1px solid #e06623;
