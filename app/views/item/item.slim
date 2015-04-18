@@ -1,13 +1,16 @@
 = csrf_meta_tags
+-@groupname = @allgroups.first(:id => @this_item.group_id )
+-@categoryname = @allcategory.first(:id => @groupname.category_id)
 .row
   .col-md-8
-    h2 Карточка Товара
+    h2 #{@categoryname.name}
   .col-md-4
     = partial 'small_cart'
 
 .row
   .col-md-12
-    h2 #{@this_item.name}
+    
+    h4 <a href="/">#{@groupname.name}</a> / #{@this_item.name}
     hr.orange
 .row
   .col-md-4

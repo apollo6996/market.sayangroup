@@ -27,6 +27,10 @@
   min-height: 77px; 
 }
 
+h3.product_title {
+  font-size: 22px;
+}
+
 .total_price {
   margin-left: -9px;
 
@@ -42,7 +46,7 @@
     background-image: url(../images/forSprite/cart_button.png);
     background-size: 100% 100%;
     margin-top: 9px;
-    width: 92%;
+    width: 89%;
     cursor: pointer;
     padding: 12px;
     overflow: hidden;
@@ -87,15 +91,21 @@ ul.spec > li {
   display: inline-block;
   float: left;
   width: 205px;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 
-  &:nth-child(4n) {
-    margin-left: 40px;
+ // &:nth-child(4n) {
+ //   margin-left: 40px;
+ // }
+
+  //&:nth-child(-n) {
+  //  margin-left: 0px;
+  //}
+
+  &:nth-child(1n + 1) {
+    margin-right: 30px;
   }
 
-  &:nth-child(2n + 1) {
-    margin-left: 40px;
-  }
+
 
 
   & hr {

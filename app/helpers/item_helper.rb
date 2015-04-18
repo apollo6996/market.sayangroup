@@ -9,6 +9,12 @@ module MarketSayangroup
 
       def get_catalog
         @items = Item.all
+        @allgroups = Group.all
+        @allcategory = Category.all
+      end
+
+      def get_related_to_group_items(group_id)
+        @groupItem = Item.all(:group_id => group_id)
       end
 
       def get_item_and_image

@@ -1,21 +1,29 @@
-h2 
-
--@items.each do |item|
-  -if item != nil
-    .item
-      - get_catalog_image(item.id)
-      = image_tag ("#{@imageface.file.medium.url}")
-      h3== "<a href='/item/get_item/#{item.id}'>#{item.name}</a>" 
-      p.discript== "#{item.descipt}"
-      hr
-      h3== "Цена: <span class='price'> #{item.price} </span> руб."
-      .form
-      = hidden_field_tag :authenticity_token, :value => session[:csrf], :class => :authenticity_token
-      = hidden_field_tag :item_id, :class => 'addingToCart_form' + "#{item.id}", :value => item.id
+-@allgroups.each do |group|
+  - get_related_to_group_items(group.id)
+  .row
+    .col-md-12
+      h2 #{group.name}
+      hr.orange
+  
+  -@groupItem.each do |item|
+    -if item != nil
+      .item
+        - get_catalog_image(item.id)
         
-      input.to_cart type="submit" onclick="addingToCart(#{item.id})" value="Добавить в Корзину!"
+        == "<a href='/item/get_item/#{item.id}'><img src='#{@imageface.file.medium.url}'></a>" 
+        //= image_tag ("#{@imageface.file.medium.url}")
+        h3.product_title== "<a href='/item/get_item/#{item.id}'>#{item.name}</a>" 
+        p.discript
+          = truncate_words("#{item.descipt}", :length => 10)
+        hr
+        h3== "Цена: <span class='price'> #{item.price} </span> руб."
+        .form
+        = hidden_field_tag :authenticity_token, :value => session[:csrf], :class => :authenticity_token
+        = hidden_field_tag :item_id, :class => 'addingToCart_form' + "#{item.id}", :value => item.id
+          
+        input.to_cart type="submit" onclick="addingToCart(#{item.id})" value="Добавить в Корзину!"
 
-      //= form_tag '/cart_item/cart_items', :method => 'POST' do
-        //= hidden_field_tag :item_id, :value => item.id
-        //= number_field_tag :qty, :value => 1, :min => 1, :max => 100
-        //= submit_tag :class => 'to_cart', :value => 'Добавить в Корзину!'
+        //= form_tag '/cart_item/cart_items', :method => 'POST' do
+          //= hidden_field_tag :item_id, :value => item.id
+          //= number_field_tag :qty, :value => 1, :min => 1, :max => 100
+          //= submit_tag :class => 'to_cart', :value => 'Добавить в Корзину!'
